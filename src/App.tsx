@@ -62,6 +62,16 @@ function App() {
       </header>
 
       <main id="top">
+        <figure className="hero-banner">
+          <img
+            src="/abstract-portrait.png"
+            alt="Abstract black-and-white portrait"
+            width="1586"
+            height="992"
+            fetchPriority="high"
+          />
+        </figure>
+
         <section className="hero ruled-section" aria-labelledby="hero-title">
           <div className="eyebrow"><span className="status-dot" /> Available for new opportunities</div>
           <p className="hero-kicker">Software Engineer · 5 years experience</p>
@@ -76,7 +86,7 @@ function App() {
         </section>
 
         <section className="intro-grid ruled-section" id="about" aria-labelledby="about-title">
-          <div className="section-label"><span>01</span><p>Profile</p></div>
+          <div className="section-label"><p>Profile</p></div>
           <div className="section-content about-copy">
             <p className="display-copy" id="about-title">
               Five years turning ambiguous requirements into software teams can understand,
@@ -97,7 +107,7 @@ function App() {
 
         <section className="work-section ruled-section" id="work" aria-labelledby="work-title">
           <div className="section-heading">
-            <div><span className="section-number">02</span><h2 id="work-title">Selected work</h2></div>
+            <div><h2 id="work-title">Selected work</h2></div>
             <p>Project details are ready to replace with your real work.</p>
           </div>
           <div className="project-grid">
@@ -122,7 +132,7 @@ function App() {
         </section>
 
         <section className="experience-section ruled-section" id="experience" aria-labelledby="experience-title">
-          <div className="section-label"><span>03</span><p>Experience</p></div>
+          <div className="section-label"><p>Experience</p></div>
           <div className="experience-content">
             <div className="experience-heading">
               <div className="experience-icon"><BriefcaseBusiness size={21} /></div>
@@ -148,7 +158,7 @@ function App() {
 
         <section className="strengths-section ruled-section" aria-labelledby="strengths-title">
           <div className="section-heading strengths-heading">
-            <div><span className="section-number">04</span><h2 id="strengths-title">How I contribute</h2></div>
+            <div><h2 id="strengths-title">How I contribute</h2></div>
             <p>Reliable execution without losing sight of the product.</p>
           </div>
           <div className="strength-grid">
