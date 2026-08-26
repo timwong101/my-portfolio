@@ -172,8 +172,13 @@ function App() {
           <p className="meta">Have an interesting problem?</p>
           <h2 id="contact-title">Let’s build something<br /><em>worth maintaining.</em></h2>
           <div className="contact-bottom">
-            <p>I’m currently exploring software engineering opportunities. Add your email and profile links here when you’re ready.</p>
-            <span className="contact-cta">Contact details coming next <ArrowUpRight size={18} /></span>
+            <p>
+              I’m currently exploring software engineering opportunities. Reach me at{' '}
+              <a href="mailto:timwong101@gmail.com">timwong101@gmail.com</a>.
+            </p>
+            <a className="contact-cta" href="mailto:timwong101@gmail.com">
+              Email me <ArrowUpRight size={18} />
+            </a>
           </div>
         </section>
       </main>
@@ -181,9 +186,9 @@ function App() {
       <footer>
         <p>© 2026 Timothy Wong · Software Engineer</p>
         <div className="socials">
-          <span title="Email link to add" aria-label="Email link to add"><Mail size={18} /></span>
-          <span title="GitHub link to add" aria-label="GitHub link to add"><Github size={18} /></span>
-          <span title="LinkedIn link to add" aria-label="LinkedIn link to add"><Linkedin size={18} /></span>
+          <a href="mailto:timwong101@gmail.com" aria-label="Email Timothy Wong"><Mail size={18} /></a>
+          <a href="https://github.com/timwong101" target="_blank" rel="noreferrer" aria-label="Timothy Wong on GitHub"><Github size={18} /></a>
+          <a href="https://www.linkedin.com/in/timothywong101/" target="_blank" rel="noreferrer" aria-label="Timothy Wong on LinkedIn"><Linkedin size={18} /></a>
           <a href="#top" aria-label="Back to top"><ArrowUp size={18} /></a>
         </div>
       </footer>
