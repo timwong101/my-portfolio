@@ -4,11 +4,11 @@ import {
   ArrowUpRight,
   BriefcaseBusiness,
   Code2,
+  GitBranch,
   Github,
+  LayoutTemplate,
   Linkedin,
   Mail,
-  Network,
-  Users,
 } from 'lucide-react';
 
 const projects = [
@@ -28,21 +28,21 @@ const projects = [
   },
 ];
 
-const strengths = [
+const techStack = [
   {
     icon: Code2,
-    title: 'Product engineering',
-    description: 'Turning a real user need into a focused, maintainable implementation.',
+    title: 'Languages',
+    items: ['TypeScript', 'JavaScript', 'HTML & CSS'],
   },
   {
-    icon: Network,
-    title: 'Systems thinking',
-    description: 'Reasoning about boundaries, failure modes, operability, and long-term change.',
+    icon: LayoutTemplate,
+    title: 'Frontend',
+    items: ['React', 'Vite', 'Tailwind CSS'],
   },
   {
-    icon: Users,
-    title: 'Team delivery',
-    description: 'Communicating tradeoffs clearly and moving work forward across disciplines.',
+    icon: GitBranch,
+    title: 'Workflow',
+    items: ['Git', 'GitHub', 'Responsive UI'],
   },
 ];
 
@@ -72,10 +72,9 @@ function App() {
           />
         </figure>
 
-        <section className="hero ruled-section" aria-labelledby="hero-title">
+        <section className="hero ruled-section" id="about" aria-labelledby="profile-title">
           <div className="eyebrow"><span className="status-dot" /> Available for new opportunities</div>
           <p className="hero-kicker">Software Engineer · 5 years experience</p>
-          <h1 id="hero-title">I build dependable software for people with real work to do.</h1>
           <div className="hero-footer">
             <p>
               I’m Timothy, a mid-level software engineer focused on thoughtful systems,
@@ -83,12 +82,9 @@ function App() {
             </p>
             <a className="text-link" href="#work">See selected work <ArrowDownRight size={17} /></a>
           </div>
-        </section>
-
-        <section className="intro-grid ruled-section" id="about" aria-labelledby="about-title">
-          <div className="section-label"><p>Profile</p></div>
-          <div className="section-content about-copy">
-            <p className="display-copy" id="about-title">
+          <div className="profile-block" aria-labelledby="profile-title">
+            <p className="profile-label">Profile</p>
+            <p className="profile-statement" id="profile-title">
               Five years turning ambiguous requirements into software teams can understand,
               operate, and extend.
             </p>
@@ -156,17 +152,17 @@ function App() {
           </div>
         </section>
 
-        <section className="strengths-section ruled-section" aria-labelledby="strengths-title">
-          <div className="section-heading strengths-heading">
-            <div><h2 id="strengths-title">How I contribute</h2></div>
-            <p>Reliable execution without losing sight of the product.</p>
+        <section className="stack-section ruled-section" aria-labelledby="stack-title">
+          <div className="section-heading stack-heading">
+            <div><h2 id="stack-title">Tech stack</h2></div>
+            <p>The tools behind this site and my current frontend work.</p>
           </div>
-          <div className="strength-grid">
-            {strengths.map(({ icon: Icon, title, description }, index) => (
+          <div className="stack-grid">
+            {techStack.map(({ icon: Icon, title, items }, index) => (
               <article key={title}>
-                <div className="strength-top"><Icon size={20} /><span>0{index + 1}</span></div>
+                <div className="stack-top"><Icon size={20} /><span>0{index + 1}</span></div>
                 <h3>{title}</h3>
-                <p>{description}</p>
+                <ul>{items.map((item) => <li key={item}>{item}</li>)}</ul>
               </article>
             ))}
           </div>
