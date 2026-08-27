@@ -62,7 +62,8 @@ function App() {
         </a>
         <nav aria-label="Main navigation">
           <a href="#about">About</a>
-          <a href="#work">Work</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
           <a href="#contact">Contact</a>
         </nav>
       </header>
@@ -86,7 +87,7 @@ function App() {
               I’m Timothy, a mid-level software engineer focused on thoughtful systems,
               maintainable code, and products that hold up beyond the happy path.
             </p>
-            <a className="text-link" href="#work">See selected work <ArrowDownRight size={17} /></a>
+            <a className="text-link" href="#projects">See selected work <ArrowDownRight size={17} /></a>
           </div>
           <div className="profile-block" aria-labelledby="profile-title">
             <p className="profile-label">Profile</p>
@@ -107,7 +108,7 @@ function App() {
           </div>
         </section>
 
-        <section className="work-section ruled-section" id="work" aria-labelledby="work-title">
+        <section className="work-section ruled-section" id="projects" aria-labelledby="work-title">
           <div className="section-heading">
             <div><h2 id="work-title">Selected work</h2></div>
             <p>Project details are ready to replace with your real work.</p>
