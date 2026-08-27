@@ -115,8 +115,7 @@ function App() {
 
         <section className="work-section ruled-section" id="projects" aria-labelledby="work-title">
           <div className="section-heading">
-            <div><h2 id="work-title">Selected work</h2></div>
-            <p>Project details are ready to replace with your real work.</p>
+            <div><h2 id="work-title">Projects</h2></div>
           </div>
           <div className="project-grid">
             {projects.map((project) => (
