@@ -51,25 +51,12 @@ const techStack = [
   },
 ];
 
-const experience = [
-  {
-    period: 'May 2024 - Present',
-    role: 'Specialist',
-    highlights: [
-      'Modernized authentication with centralized credential management, MFA, and OAuth-aligned flows.',
-      'Built Kafka event processing that cut production issue diagnosis time by more than 75%.',
-      'Developed an internal AI agent that reduced manual GitHub repository work by 90%.',
-    ],
-  },
-  {
-    period: '2021 - May 2024',
-    role: 'Associate',
-    highlights: [
-      'Modernized client-facing retirement applications with Angular interfaces and .NET Web APIs.',
-      'Partnered with product and cross-functional teams to ship new screens and business workflows.',
-      'Supported production systems and expanded automated QA coverage with Java and Gherkin.',
-    ],
-  },
+const experienceHighlights = [
+  'Modernized authentication with centralized credential management, MFA, and OAuth-aligned flows.',
+  'Built Kafka event processing that cut production issue diagnosis time by more than 75%.',
+  'Developed an internal AI agent that reduced manual GitHub repository work by 90%.',
+  'Modernized client-facing retirement applications with Angular interfaces and .NET Web APIs.',
+  'Supported production systems and expanded automated QA coverage with Java and Gherkin.',
 ];
 
 function App() {
@@ -162,17 +149,9 @@ function App() {
                 <h2 id="experience-title">Software Engineer</h2>
               </div>
             </div>
-            {experience.map(({ period, role, highlights }) => (
-              <div className="experience-row" key={role}>
-                <div className="experience-role">
-                  <span>{period}</span>
-                  <h3>{role}</h3>
-                </div>
-                <ul>
-                  {highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
-                </ul>
-              </div>
-            ))}
+            <ul className="experience-highlights">
+              {experienceHighlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
+            </ul>
           </div>
         </section>
 
