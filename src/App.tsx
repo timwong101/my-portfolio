@@ -64,7 +64,6 @@ function App() {
     <div className="site-shell">
       <header className="topbar">
         <a className="wordmark" href="#top" aria-label="Timothy Wong, home">
-          <span className="wordmark-mark">TW</span>
           <span>Timothy Wong</span>
         </a>
         <nav aria-label="Main navigation">
