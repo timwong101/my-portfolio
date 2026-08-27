@@ -1,5 +1,4 @@
 import {
-  ArrowDownRight,
   ArrowUp,
   ArrowUpRight,
   BriefcaseBusiness,
@@ -107,7 +106,6 @@ function App() {
               I’m Timothy, a mid-level software engineer focused on thoughtful systems,
               maintainable code, and products that hold up beyond the happy path.
             </p>
-            <a className="text-link" href="#projects">See selected work <ArrowDownRight size={17} /></a>
           </div>
           <div className="profile-block" aria-labelledby="profile-title">
             <p className="profile-label">Profile</p>
