@@ -101,7 +101,6 @@ function App() {
         </figure>
 
         <section className="hero ruled-section" id="about" aria-labelledby="profile-title">
-          <div className="eyebrow"><span className="status-dot" /> Available for new opportunities</div>
           <p className="hero-kicker">Software Engineer · 5 years experience</p>
           <div className="hero-footer">
             <p>
