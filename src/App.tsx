@@ -9,6 +9,7 @@ import {
   LayoutTemplate,
   Linkedin,
   Mail,
+  Settings,
 } from 'lucide-react';
 
 const projects = [
@@ -32,17 +33,22 @@ const techStack = [
   {
     icon: Code2,
     title: 'Languages',
-    items: ['TypeScript', 'JavaScript', 'HTML & CSS'],
+    items: ['C#', 'SQL', 'TypeScript', 'JavaScript', 'Java', 'Python'],
   },
   {
     icon: LayoutTemplate,
-    title: 'Frontend',
-    items: ['React', 'Vite', 'Tailwind CSS'],
+    title: 'Platforms & infrastructure',
+    items: ['.NET', 'Angular', 'React', 'Node.js', 'Kafka', 'Docker', 'Kubernetes', 'AWS', 'Linux', 'REST APIs'],
   },
   {
     icon: GitBranch,
-    title: 'Workflow',
-    items: ['Git', 'GitHub', 'Responsive UI'],
+    title: 'Tools',
+    items: ['Git', 'GitHub', 'GitHub Copilot', 'Postman', 'Bruno', 'Splunk', 'Atlassian Suite'],
+  },
+  {
+    icon: Settings,
+    title: 'Practices',
+    items: ['Full-stack development', 'API development', 'Production support', 'Test automation', 'CI/CD', 'Logging & monitoring', 'Agile/Scrum'],
   },
 ];
 
@@ -155,7 +161,7 @@ function App() {
         <section className="stack-section ruled-section" aria-labelledby="stack-title">
           <div className="section-heading stack-heading">
             <div><h2 id="stack-title">Tech stack</h2></div>
-            <p>The tools behind this site and my current frontend work.</p>
+            <p>Technologies and practices from production full-stack work.</p>
           </div>
           <div className="stack-grid">
             {techStack.map(({ icon: Icon, title, items }, index) => (

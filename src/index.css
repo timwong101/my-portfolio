@@ -79,13 +79,13 @@ h2 { margin: 0; font-family: Georgia, serif; font-size: 34px; font-weight: 400; 
 
 .stack-section { padding: 38px 24px 46px; }
 .stack-heading { margin-bottom: 22px; }
-.stack-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #aaa99e; border-left: 1px solid #aaa99e; }
-.stack-grid article { min-height: 190px; padding: 20px; border-right: 1px solid #aaa99e; border-bottom: 1px solid #aaa99e; display: flex; flex-direction: column; }
+.stack-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid #aaa99e; border-left: 1px solid #aaa99e; }
+.stack-grid article { min-height: 220px; padding: 20px; border-right: 1px solid #aaa99e; border-bottom: 1px solid #aaa99e; display: flex; flex-direction: column; }
 .stack-top { display: flex; align-items: center; justify-content: space-between; color: #59605a; }
 .stack-top span { font: 10px ui-monospace, monospace; }
 .stack-grid h3 { margin: 28px 0 12px; font-family: Georgia, serif; font-size: 22px; font-weight: 400; letter-spacing: -.02em; }
-.stack-grid ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid #d1cfc4; }
-.stack-grid li { padding: 8px 0; border-bottom: 1px solid #e0ded5; color: #626760; font: 10px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .05em; }
+.stack-grid ul { display: flex; flex-wrap: wrap; align-content: flex-start; gap: 6px; list-style: none; margin: 0; padding: 12px 0 0; border-top: 1px solid #d1cfc4; }
+.stack-grid li { padding: 6px 8px; border: 1px solid #d2d0c7; border-radius: 99px; color: #626760; font: 9px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .04em; }
 
 .contact-section { min-height: 390px; padding: 50px 44px 34px; display: flex; flex-direction: column; background: #202020; color: #f4f4f2; position: relative; overflow: hidden; }
 .contact-section .meta { color: #c2c2bd; }
