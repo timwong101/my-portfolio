@@ -209,7 +209,7 @@ function App() {
       </main>
 
       <footer>
-        <p>© 2026 Timothy Wong · Software Engineer</p>
+        <p>© 2026 Timothy Wong</p>
         <div className="socials">
           <a href="mailto:timwong101@gmail.com" aria-label="Email Timothy Wong"><Mail size={18} /></a>
           <a href="https://github.com/timwong101" target="_blank" rel="noreferrer" aria-label="Timothy Wong on GitHub"><Github size={18} /></a>
