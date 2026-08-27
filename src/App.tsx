@@ -160,8 +160,7 @@ function App() {
 
         <section className="stack-section ruled-section" aria-labelledby="stack-title">
           <div className="section-heading stack-heading">
-            <div><h2 id="stack-title">Tech stack</h2></div>
-            <p>Technologies and practices from production full-stack work.</p>
+            <div><h2 id="stack-title">Tech Stack</h2></div>
           </div>
           <div className="stack-grid">
             {techStack.map(({ title, items }) => (
