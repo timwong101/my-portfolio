@@ -3,13 +3,9 @@ import {
   ArrowUp,
   ArrowUpRight,
   BriefcaseBusiness,
-  Code2,
-  GitBranch,
   Github,
-  LayoutTemplate,
   Linkedin,
   Mail,
-  Settings,
 } from 'lucide-react';
 
 const projects = [
@@ -31,24 +27,28 @@ const projects = [
 
 const techStack = [
   {
-    icon: Code2,
     title: 'Languages',
-    items: ['C#', 'SQL', 'TypeScript', 'JavaScript', 'Java', 'Python'],
+    items: ['TypeScript', 'Python', 'JavaScript', 'C#', 'SQL', 'Java'],
   },
   {
-    icon: LayoutTemplate,
-    title: 'Platforms & infrastructure',
-    items: ['.NET', 'Angular', 'React', 'Node.js', 'Kafka', 'Docker', 'Kubernetes', 'AWS', 'Linux', 'REST APIs'],
+    title: 'Frontend',
+    items: ['React', 'Angular', 'Tailwind CSS'],
   },
   {
-    icon: GitBranch,
+    title: 'Backend',
+    items: ['.NET', 'Node.js', 'REST APIs'],
+  },
+  {
+    title: 'Databases',
+    items: ['PostgreSQL', 'Redis', 'Microsoft SQL Server', 'Oracle Database'],
+  },
+  {
+    title: 'Infrastructure',
+    items: ['AWS', 'Docker', 'Kubernetes', 'Kafka'],
+  },
+  {
     title: 'Tools',
-    items: ['Git', 'GitHub', 'GitHub Copilot', 'Postman', 'Bruno', 'Splunk', 'Atlassian Suite'],
-  },
-  {
-    icon: Settings,
-    title: 'Practices',
-    items: ['Full-stack development', 'API development', 'Production support', 'Test automation', 'CI/CD', 'Logging & monitoring', 'Agile/Scrum'],
+    items: ['Git', 'GitHub', 'GitHub Copilot', 'Codex', 'Postman', 'Splunk', 'Figma'],
   },
 ];
 
@@ -164,9 +164,8 @@ function App() {
             <p>Technologies and practices from production full-stack work.</p>
           </div>
           <div className="stack-grid">
-            {techStack.map(({ icon: Icon, title, items }, index) => (
+            {techStack.map(({ title, items }) => (
               <article key={title}>
-                <div className="stack-top"><Icon size={20} /><span>0{index + 1}</span></div>
                 <h3>{title}</h3>
                 <ul>{items.map((item) => <li key={item}>{item}</li>)}</ul>
               </article>
