@@ -28,7 +28,7 @@ const projects = [
 const techStack = [
   {
     title: 'Languages',
-    items: ['TypeScript', 'Python', 'JavaScript', 'C#', 'SQL', 'Java'],
+    items: ['TypeScript', 'Python', 'JavaScript', 'C#', 'Java', 'SQL'],
   },
   {
     title: 'Frontend',
@@ -49,6 +49,27 @@ const techStack = [
   {
     title: 'Tools',
     items: ['Git', 'GitHub', 'GitHub Copilot', 'Codex', 'Postman', 'Splunk', 'Figma'],
+  },
+];
+
+const experience = [
+  {
+    period: 'May 2024 - Present',
+    role: 'Specialist',
+    highlights: [
+      'Modernized authentication with centralized credential management, MFA, and OAuth-aligned flows.',
+      'Built Kafka event processing that cut production issue diagnosis time by more than 75%.',
+      'Developed an internal AI agent that reduced manual GitHub repository work by 90%.',
+    ],
+  },
+  {
+    period: '2021 - May 2024',
+    role: 'Associate',
+    highlights: [
+      'Modernized client-facing retirement applications with Angular interfaces and .NET Web APIs.',
+      'Partnered with product and cross-functional teams to ship new screens and business workflows.',
+      'Supported production systems and expanded automated QA coverage with Java and Gherkin.',
+    ],
   },
 ];
 
@@ -140,22 +161,21 @@ function App() {
             <div className="experience-heading">
               <div className="experience-icon"><BriefcaseBusiness size={21} /></div>
               <div>
-                <p className="meta">Five years in production software</p>
-                <h2 id="experience-title">Mid-level scope,<br />end-to-end ownership.</h2>
+                <p className="meta">Charles Schwab · 2021 - Present</p>
+                <h2 id="experience-title">Software Engineer</h2>
               </div>
             </div>
-            <div className="experience-row">
-              <span>01 / Discover</span>
-              <p>Clarify the problem, the constraints, and what a useful outcome looks like.</p>
-            </div>
-            <div className="experience-row">
-              <span>02 / Design</span>
-              <p>Choose an approach that balances delivery speed with future change.</p>
-            </div>
-            <div className="experience-row">
-              <span>03 / Deliver</span>
-              <p>Ship safely, observe the result, and improve the system with what we learn.</p>
-            </div>
+            {experience.map(({ period, role, highlights }) => (
+              <div className="experience-row" key={role}>
+                <div className="experience-role">
+                  <span>{period}</span>
+                  <h3>{role}</h3>
+                </div>
+                <ul>
+                  {highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
+                </ul>
+              </div>
+            ))}
           </div>
         </section>
 
