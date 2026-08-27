@@ -39,9 +39,11 @@ nav a:hover, .text-link:hover { opacity: .55; }
 .profile-block { display: grid; grid-template-columns: 90px 1fr; column-gap: 28px; margin-top: 34px; }
 .profile-label { grid-row: 1 / span 2; margin: 4px 0 0; font: 10px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .08em; }
 .profile-statement { max-width: 590px; margin: 0; font-family: Georgia, serif; font-size: clamp(26px, 3vw, 36px); line-height: 1.1; letter-spacing: -.03em; }
-.body-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 30px; color: #555a54; font-size: 13px; line-height: 1.6; }
-.body-columns p { margin: 0; }
-.profile-block .body-columns { grid-column: 2; margin-top: 24px; }
+.profile-details { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; color: #555a54; font-size: 13px; line-height: 1.6; }
+.profile-details article { padding-top: 12px; border-top: 1px solid #d1cfc4; }
+.profile-details span { display: block; margin-bottom: 9px; color: #1f2420; font: 9px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .08em; }
+.profile-details p { margin: 0; }
+.profile-block .profile-details { grid-column: 2; margin-top: 24px; }
 
 .work-section { padding: 38px 24px 46px; }
 .section-heading { display: flex; justify-content: space-between; align-items: end; margin-bottom: 22px; }
@@ -111,9 +113,9 @@ footer { display: flex; justify-content: space-between; align-items: center; min
   .section-label { padding: 24px 24px 0; border-right: 0; }
   .profile-block { grid-template-columns: 1fr; row-gap: 18px; margin-top: 32px; }
   .profile-label { grid-row: auto; margin: 0; }
-  .profile-block .body-columns { grid-column: 1; margin-top: 4px; }
-  .body-columns, .project-grid { grid-template-columns: 1fr; }
-  .body-columns { gap: 18px; margin-top: 24px; }
+  .profile-block .profile-details { grid-column: 1; margin-top: 4px; }
+  .profile-details, .project-grid { grid-template-columns: 1fr; }
+  .profile-details { gap: 18px; }
   .work-section { padding: 32px 20px 40px; }
   .section-heading { align-items: flex-start; flex-direction: column; gap: 15px; }
   .section-heading > p { text-align: left; }

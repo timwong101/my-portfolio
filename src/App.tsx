@@ -90,25 +90,31 @@ function App() {
           <p className="hero-kicker">Software Engineer</p>
           <div className="hero-footer">
             <p>
-              I’m Timothy, a mid-level software engineer focused on thoughtful systems,
-              maintainable code, and products that hold up beyond the happy path.
+              I’m Timothy, a software engineer building and modernizing client-facing
+              financial applications.
             </p>
           </div>
           <div className="profile-block" aria-labelledby="profile-title">
             <p className="profile-label">Profile</p>
             <p className="profile-statement" id="profile-title">
-              Five years turning ambiguous requirements into software teams can understand,
-              operate, and extend.
+              I modernize the parts of software that carry the most risk: identity,
+              integrations, data flows, and production operations.
             </p>
-            <div className="body-columns">
-              <p>
-                I care about the full lifecycle of a feature: understanding the problem,
-                choosing a practical design, shipping it safely, and learning from how it behaves.
-              </p>
-              <p>
-                My best work sits where product judgment and engineering rigor meet. I enjoy
-                collaborating across disciplines and leaving systems better than I found them.
-              </p>
+            <div className="profile-details">
+              <article>
+                <span>What I build</span>
+                <p>
+                  Authentication flows, APIs, event-driven services, database integrations,
+                  and web interfaces using .NET, Angular, Kafka, and SQL.
+                </p>
+              </article>
+              <article>
+                <span>What I optimize</span>
+                <p>
+                  Incident diagnosis, repetitive engineering workflows, and release stability—so
+                  teams spend less time fighting systems and more time improving them.
+                </p>
+              </article>
             </div>
           </div>
         </section>
