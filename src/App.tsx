@@ -87,7 +87,7 @@ function App() {
         </figure>
 
         <section className="hero ruled-section" id="about" aria-labelledby="profile-title">
-          <p className="hero-kicker">Software Engineer · 5 years experience</p>
+          <p className="hero-kicker">Software Engineer</p>
           <div className="hero-footer">
             <p>
               I’m Timothy, a mid-level software engineer focused on thoughtful systems,
