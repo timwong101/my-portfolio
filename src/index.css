@@ -98,7 +98,8 @@ h2 { margin: 0; font-family: Georgia, serif; font-size: 34px; font-weight: 400; 
 .contact-bottom { margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(240,238,230,.25); display: flex; justify-content: space-between; align-items: flex-end; gap: 35px; }
 .contact-bottom p { max-width: 480px; margin: 0; color: #c0c4bd; font-size: 13px; line-height: 1.5; }
 .contact-bottom p a { color: #f4f4f2; text-decoration: underline; text-underline-offset: 3px; }
-.contact-cta { display: inline-flex; align-items: center; gap: 8px; color: #e6e7e1; font: 10px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .06em; white-space: nowrap; }
+.contact-cta { display: inline-flex; align-items: center; gap: 9px; padding: 11px 14px; border: 1px solid rgba(244,244,242,.55); color: #f4f4f2; font: 10px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .06em; white-space: nowrap; transition: background .2s ease, color .2s ease; }
+.contact-cta:hover { background: #f4f4f2; color: #202020; }
 
 footer { display: flex; justify-content: space-between; align-items: center; min-height: 84px; padding: 20px 24px; font: 10px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .05em; }
 .socials { display: flex; gap: 8px; }

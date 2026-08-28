@@ -210,7 +210,7 @@ function App() {
               You might be interested in building, collaborating, or just chatting.
             </p>
             <a className="contact-cta" href="mailto:timwong101@gmail.com">
-              Email me <ArrowUpRight size={18} />
+              Let’s talk <ArrowUpRight size={18} />
             </a>
           </div>
         </section>
