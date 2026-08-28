@@ -64,7 +64,7 @@ function App() {
     <div className="site-shell">
       <header className="topbar">
         <a className="wordmark" href="#top" aria-label="Timothy Wong, home">
-          <span>Timothy Wong</span>
+          <span>Tim Wong</span>
         </a>
         <nav aria-label="Main navigation">
           <a href="#about">About</a>
@@ -89,7 +89,7 @@ function App() {
           <p className="hero-kicker">Software Engineer</p>
           <div className="hero-footer">
             <p>
-              I’m Timothy, a software engineer building and modernizing client-facing
+              I’m Tim, a software engineer building and modernizing client-facing
               financial applications.
             </p>
           </div>
@@ -189,7 +189,7 @@ function App() {
       </main>
 
       <footer>
-        <p>© 2026 Timothy Wong</p>
+        <p>© 2026 Tim Wong</p>
         <div className="socials">
           <a href="mailto:timwong101@gmail.com" aria-label="Email Timothy Wong"><Mail size={18} /></a>
           <a href="https://github.com/timwong101" target="_blank" rel="noreferrer" aria-label="Timothy Wong on GitHub"><Github size={18} /></a>
