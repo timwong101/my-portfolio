@@ -205,11 +205,10 @@ function App() {
 
         <section className="contact-section ruled-section" id="contact" aria-labelledby="contact-title">
           <p className="meta">Have an interesting problem?</p>
-          <h2 id="contact-title">Let’s build something<br /><em>worth maintaining.</em></h2>
+          <h2 id="contact-title">Still here?</h2>
           <div className="contact-bottom">
             <p>
-              I’m currently exploring software engineering opportunities. Reach me at{' '}
-              <a href="mailto:timwong101@gmail.com">timwong101@gmail.com</a>.
+              You might be interested in building, collaborating, or just chatting.
             </p>
             <a className="contact-cta" href="mailto:timwong101@gmail.com">
               Email me <ArrowUpRight size={18} />
