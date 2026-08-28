@@ -204,7 +204,6 @@ function App() {
         </section>
 
         <section className="contact-section ruled-section" id="contact" aria-labelledby="contact-title">
-          <p className="meta">Have an interesting problem?</p>
           <h2 id="contact-title">Still here?</h2>
           <div className="contact-bottom">
             <p>
