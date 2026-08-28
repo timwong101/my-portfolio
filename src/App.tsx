@@ -94,7 +94,7 @@ function App() {
             </p>
           </div>
           <div className="profile-block" aria-labelledby="profile-title">
-            <p className="profile-label">Profile</p>
+            <p className="profile-label">About</p>
             <p className="profile-statement" id="profile-title">
               I modernize the parts of software that carry the most risk: identity,
               integrations, data flows, and production operations.
