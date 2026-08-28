@@ -89,7 +89,7 @@ function App() {
 
         <section className="about-section ruled-section" id="about" aria-labelledby="about-title">
           <div className="about-heading">
-            <p className="about-label">About</p>
+            <p className="about-label section-title">About</p>
             <h1 id="about-title">
               I like making complicated software easier to understand, use, and maintain.
             </h1>
@@ -115,7 +115,7 @@ function App() {
 
         <section className="work-section ruled-section" id="projects" aria-labelledby="work-title">
           <div className="section-heading">
-            <div><h2 id="work-title">Projects</h2></div>
+            <div><h2 className="section-title" id="work-title">Projects</h2></div>
           </div>
           <div className="project-grid">
             {projects.map((project) => (
@@ -167,13 +167,15 @@ function App() {
         </section>
 
         <section className="experience-section ruled-section" id="experience" aria-labelledby="experience-title">
-          <div className="section-label"><p>Experience</p></div>
+          <div className="section-label">
+            <h2 className="section-title" id="experience-title">Experience</h2>
+          </div>
           <div className="experience-content">
             <div className="experience-heading">
               <div className="experience-icon"><BriefcaseBusiness size={21} /></div>
               <div>
                 <p className="meta">Charles Schwab · 2021 - Present</p>
-                <h2 id="experience-title">Software Engineer</h2>
+                <h3 className="experience-role">Software Engineer</h3>
               </div>
             </div>
             <ul className="experience-highlights">
@@ -184,7 +186,7 @@ function App() {
 
         <section className="stack-section ruled-section" aria-labelledby="stack-title">
           <div className="section-heading stack-heading">
-            <div><h2 id="stack-title">Tech Stack</h2></div>
+            <div><h2 className="section-title" id="stack-title">Tech Stack</h2></div>
           </div>
           <div className="stack-grid">
             {techStack.map(({ title, items }) => (
@@ -197,7 +199,7 @@ function App() {
         </section>
 
         <section className="contact-section ruled-section" id="contact" aria-labelledby="contact-title">
-          <h2 id="contact-title">Still here?</h2>
+          <h2 className="section-title" id="contact-title">Still here?</h2>
           <div className="contact-bottom">
             <p>
               You might be interested in building, collaborating, or just chatting.
