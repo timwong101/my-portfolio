@@ -141,10 +141,21 @@ function App() {
                   )}
                 </div>
                 <div className="project-copy">
-                  <div>
-                    {'image' in project ? null : <span>{project.index}</span>}
+                  {'image' in project ? null : (
+                    <div>
+                      <span>{project.index}</span>
+                      <ArrowUpRight size={19} aria-hidden="true" />
+                    </div>
+                  )}
+                  <h3 className={'image' in project ? 'project-title-with-link' : undefined}>
+                    {'url' in project ? (
+                      <a href={project.url} target="_blank" rel="noreferrer">
+                        {project.title}
+                      </a>
+                    ) : project.title}
                     {'url' in project ? (
                       <a
+                        className="project-title-arrow"
                         href={project.url}
                         target="_blank"
                         rel="noreferrer"
@@ -152,14 +163,7 @@ function App() {
                       >
                         <ArrowUpRight size={19} />
                       </a>
-                    ) : <ArrowUpRight size={19} aria-hidden="true" />}
-                  </div>
-                  <h3>
-                    {'url' in project ? (
-                      <a href={project.url} target="_blank" rel="noreferrer">
-                        {project.title}
-                      </a>
-                    ) : project.title}
+                    ) : null}
                   </h3>
                   <p>{project.description}</p>
                   <ul>{project.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>

@@ -64,10 +64,12 @@ h2 { margin: 0; font-family: Georgia, serif; font-size: 34px; font-weight: 400; 
 .visual-diagram i:nth-child(2) { width: 52px; height: 52px; background: #2f3831; border-color: #2f3831; }
 .project-copy { padding: 20px; }
 .project-copy > div { display: flex; justify-content: space-between; color: #737770; font: 10px ui-monospace, monospace; }
-.project-copy > div a { display: inline-flex; transition: opacity .2s ease; }
 .project-copy h3 { margin: 18px 0 9px; font-family: Georgia, serif; font-size: 24px; font-weight: 400; letter-spacing: -.02em; }
 .project-copy h3 a { transition: opacity .2s ease; }
-.project-copy > div a:hover, .project-copy h3 a:hover { opacity: .55; }
+.project-copy h3.project-title-with-link { display: flex; align-items: flex-start; gap: 9px; margin-top: 0; }
+.project-title-with-link > a:first-child { flex: 1; }
+.project-title-arrow { display: inline-flex; flex: 0 0 auto; margin-top: 4px; }
+.project-copy h3 a:hover { opacity: .55; }
 .project-copy p { min-height: 60px; margin: 0; color: #626760; font-size: 13px; line-height: 1.55; }
 .project-copy ul { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 14px 0 0; margin: 18px 0 0; border-top: 1px solid #d1cfc4; }
 .project-copy li { border: 1px solid #bbbcb2; border-radius: 99px; padding: 5px 8px; font: 8px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .05em; }
