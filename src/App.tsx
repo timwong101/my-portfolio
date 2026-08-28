@@ -15,6 +15,7 @@ const projects = [
       'Evidence-grounded research terminal that turns SEC filings and investor-relations material into cited analysis, auditable evidence, and point-in-time research.',
     tags: ['TypeScript', 'Next.js', 'PostgreSQL'],
     url: 'https://github.com/timwong101/ai-infra-terminal',
+    image: '/ai-infrastructure-terminal.png',
   },
   {
     index: '02',
@@ -126,16 +127,22 @@ function App() {
           <div className="project-grid">
             {projects.map((project) => (
               <article className="project-card" key={project.index}>
-                <div className="project-visual" aria-hidden="true">
-                  <span className="project-index">PROJECT / {project.index}</span>
-                  <div className="visual-window">
-                    <span /><span /><span />
-                    <div className="visual-diagram"><i /><i /><i /></div>
-                  </div>
+                <div className={`project-visual ${'image' in project ? 'has-image' : ''}`}>
+                  {'image' in project ? (
+                    <img src={project.image} alt="AI Infrastructure Research Terminal comparison memo" />
+                  ) : (
+                    <>
+                      <span className="project-index">PROJECT / {project.index}</span>
+                      <div className="visual-window" aria-hidden="true">
+                        <span /><span /><span />
+                        <div className="visual-diagram"><i /><i /><i /></div>
+                      </div>
+                    </>
+                  )}
                 </div>
                 <div className="project-copy">
                   <div>
-                    <span>{project.index}</span>
+                    {'image' in project ? null : <span>{project.index}</span>}
                     {'url' in project ? (
                       <a
                         href={project.url}
