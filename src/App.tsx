@@ -87,35 +87,28 @@ function App() {
           />
         </figure>
 
-        <section className="hero ruled-section" id="about" aria-labelledby="profile-title">
-          <p className="hero-kicker">Software Engineer</p>
-          <div className="hero-footer">
-            <p>
-              I’m Tim, a software engineer building and modernizing client-facing
-              financial applications.
-            </p>
+        <section className="about-section ruled-section" id="about" aria-labelledby="about-title">
+          <div className="about-heading">
+            <p className="about-label">About</p>
+            <h1 id="about-title">
+              I like making complicated software easier to understand, use, and maintain.
+            </h1>
           </div>
-          <div className="profile-block" aria-labelledby="profile-title">
-            <p className="profile-label">About</p>
-            <p className="profile-statement" id="profile-title">
-              I modernize the parts of software that carry the most risk: identity,
-              integrations, data flows, and production operations.
+          <div className="about-copy">
+            <p className="about-intro">
+              I’m Tim, a software engineer who works across frontend, backend, data, and
+              infrastructure.
             </p>
-            <div className="profile-details">
-              <article>
-                <span>What I build</span>
-                <p>
-                  Authentication flows, APIs, event-driven services, database integrations,
-                  and web interfaces using .NET, Angular, Kafka, and SQL.
-                </p>
-              </article>
-              <article>
-                <span>What I optimize</span>
-                <p>
-                  Incident diagnosis, repetitive engineering workflows, and release stability—so
-                  teams spend less time fighting systems and more time improving them.
-                </p>
-              </article>
+            <div>
+              <p>
+                Most of my professional work has been in financial services, where I’ve
+                modernized authentication, built APIs and event-driven services, and improved
+                production support tooling.
+              </p>
+              <p>
+                Outside of work, I build projects that let me explore AI, data-heavy products,
+                and thoughtful interface design.
+              </p>
             </div>
           </div>
         </section>
