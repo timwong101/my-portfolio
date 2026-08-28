@@ -10,10 +10,11 @@ import {
 const projects = [
   {
     index: '01',
-    title: 'Your strongest project',
+    title: 'AI Infrastructure Research Terminal',
     description:
-      'Lead with a project that shows ownership: the problem, the engineering decisions you made, and the outcome your work created.',
-    tags: ['Architecture', 'Product thinking', 'Impact'],
+      'Evidence-grounded research terminal that turns SEC filings and investor-relations material into cited analysis, auditable evidence, and point-in-time research.',
+    tags: ['TypeScript', 'Next.js', 'PostgreSQL'],
+    url: 'https://github.com/timwong101/ai-infra-terminal',
   },
   {
     index: '02',
@@ -133,8 +134,26 @@ function App() {
                   </div>
                 </div>
                 <div className="project-copy">
-                  <div><span>{project.index}</span><ArrowUpRight size={19} /></div>
-                  <h3>{project.title}</h3>
+                  <div>
+                    <span>{project.index}</span>
+                    {'url' in project ? (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`View ${project.title} on GitHub`}
+                      >
+                        <ArrowUpRight size={19} />
+                      </a>
+                    ) : <ArrowUpRight size={19} aria-hidden="true" />}
+                  </div>
+                  <h3>
+                    {'url' in project ? (
+                      <a href={project.url} target="_blank" rel="noreferrer">
+                        {project.title}
+                      </a>
+                    ) : project.title}
+                  </h3>
                   <p>{project.description}</p>
                   <ul>{project.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
                 </div>
