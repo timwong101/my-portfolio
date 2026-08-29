@@ -7,22 +7,40 @@ import {
   Mail,
 } from 'lucide-react';
 
-const projects = [
+const featuredProject = {
+  title: 'AI Infrastructure Research Terminal',
+  description:
+    'Evidence-grounded research terminal that turns SEC filings and investor-relations material into cited analysis, auditable evidence, and point-in-time research.',
+  tags: ['TypeScript', 'Next.js', 'PostgreSQL', 'Redis', 'BullMQ'],
+  url: 'https://github.com/timwong101/ai-infra-terminal',
+  image: '/ai-infrastructure-terminal.png',
+};
+
+const projectCaseStudy = [
   {
-    index: '01',
-    title: 'AI Infrastructure Research Terminal',
+    title: 'Problem',
     description:
-      'Evidence-grounded research terminal that turns SEC filings and investor-relations material into cited analysis, auditable evidence, and point-in-time research.',
-    tags: ['TypeScript', 'Next.js', 'PostgreSQL'],
-    url: 'https://github.com/timwong101/ai-infra-terminal',
-    image: '/ai-infrastructure-terminal.png',
+      'AI infrastructure research is scattered across SEC filings and investor-relations material. Generic chat tools can summarize it, but rarely prove which evidence supports each claim or what was knowable at a selected point in time.',
   },
   {
-    index: '02',
-    title: 'A technically deep build',
+    title: 'Architecture',
     description:
-      'Use this space for a system that demonstrates depth—performance, reliability, distributed data, developer tooling, or infrastructure.',
-    tags: ['Systems', 'Tradeoffs', 'Reliability'],
+      'A modular TypeScript monolith keeps deployment practical while separating ingestion, retrieval, verification, and replay. PostgreSQL stores research and operations data, Redis and BullMQ run durable jobs, and S3-compatible storage preserves checksum-addressed source artifacts.',
+  },
+  {
+    title: 'Grounding controls',
+    description:
+      'Retrieval is limited to analyst-accepted evidence above a quality floor. Citations are company-scoped, unsupported claims are removed, exact evidence packets are frozen, and evidence changes mark affected research stale.',
+  },
+  {
+    title: 'Quality gates',
+    description:
+      'Real SEC and IR documents form parser benchmarks with controlled promotion thresholds. Node and Playwright tests, versioned regression cases, numeric-fidelity checks, contradiction detection, and temporal-leakage diagnostics keep failures reviewable.',
+  },
+  {
+    title: 'Tradeoffs',
+    description:
+      'Interactive work uses BullMQ for retry and restart durability. Scheduled GitHub Actions run the bounded stage graph directly, avoiding a queue topology that would add complexity without recovery across short-lived runners.',
   },
 ];
 
@@ -115,51 +133,53 @@ function App() {
             <div><h2 className="section-title" id="work-title">Projects</h2></div>
           </div>
           <div className="project-grid">
-            {projects.map((project) => (
-              <article className="project-card" key={project.index}>
-                <div className={`project-visual ${'image' in project ? 'has-image' : ''}`}>
-                  {'image' in project ? (
-                    <img src={project.image} alt="AI Infrastructure Research Terminal comparison memo" />
-                  ) : (
-                    <>
-                      <span className="project-index">PROJECT / {project.index}</span>
-                      <div className="visual-window" aria-hidden="true">
-                        <span /><span /><span />
-                        <div className="visual-diagram"><i /><i /><i /></div>
-                      </div>
-                    </>
-                  )}
+            <article className="project-card featured-project">
+              <div className="project-visual">
+                <img
+                  src={featuredProject.image}
+                  alt="AI Infrastructure Research Terminal comparison memo"
+                />
+              </div>
+              <div className="project-copy">
+                <h3 className="project-title-with-link">
+                  <a href={featuredProject.url} target="_blank" rel="noreferrer">
+                    {featuredProject.title}
+                  </a>
+                  <a
+                    className="project-title-arrow"
+                    href={featuredProject.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`View ${featuredProject.title} on GitHub`}
+                  >
+                    <ArrowUpRight size={19} />
+                  </a>
+                </h3>
+                <p className="project-description">{featuredProject.description}</p>
+                <ul className="project-tags">
+                  {featuredProject.tags.map((tag) => <li key={tag}>{tag}</li>)}
+                </ul>
+                <div className="project-actions">
+                  <a href={featuredProject.url} target="_blank" rel="noreferrer">
+                    <Github size={16} /> View source <ArrowUpRight size={15} />
+                  </a>
                 </div>
-                <div className="project-copy">
-                  {'image' in project ? null : (
-                    <div>
-                      <span>{project.index}</span>
-                      <ArrowUpRight size={19} aria-hidden="true" />
-                    </div>
-                  )}
-                  <h3 className={'image' in project ? 'project-title-with-link' : undefined}>
-                    {'url' in project ? (
-                      <a href={project.url} target="_blank" rel="noreferrer">
-                        {project.title}
-                      </a>
-                    ) : project.title}
-                    {'url' in project ? (
-                      <a
-                        className="project-title-arrow"
-                        href={project.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={`View ${project.title} on GitHub`}
-                      >
-                        <ArrowUpRight size={19} />
-                      </a>
-                    ) : null}
-                  </h3>
-                  <p>{project.description}</p>
-                  <ul>{project.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
-                </div>
-              </article>
-            ))}
+                <details className="project-details">
+                  <summary>
+                    <span>Engineering details</span>
+                    <span className="details-toggle" aria-hidden="true">+</span>
+                  </summary>
+                  <div className="case-study-grid">
+                    {projectCaseStudy.map(({ title, description }) => (
+                      <section key={title}>
+                        <h4>{title}</h4>
+                        <p>{description}</p>
+                      </section>
+                    ))}
+                  </div>
+                </details>
+              </div>
+            </article>
           </div>
         </section>
 
