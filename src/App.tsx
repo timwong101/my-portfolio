@@ -141,20 +141,7 @@ function App() {
                 />
               </div>
               <div className="project-copy">
-                <h3 className="project-title-with-link">
-                  <a href={featuredProject.url} target="_blank" rel="noreferrer">
-                    {featuredProject.title}
-                  </a>
-                  <a
-                    className="project-title-arrow"
-                    href={featuredProject.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`View ${featuredProject.title} on GitHub`}
-                  >
-                    <ArrowUpRight size={19} />
-                  </a>
-                </h3>
+                <h3>{featuredProject.title}</h3>
                 <p className="project-description">{featuredProject.description}</p>
                 <ul className="project-tags">
                   {featuredProject.tags.map((tag) => <li key={tag}>{tag}</li>)}
