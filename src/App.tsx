@@ -111,7 +111,7 @@ function App() {
           </div>
           <div className="about-copy">
             <p className="about-intro">
-              I’m Tim, a software engineer who works across frontend, backend, data, and
+              I’m Tim, a full stack software engineer who works across frontend, backend, data, and
               infrastructure.
             </p>
             <div>
