@@ -89,10 +89,7 @@ function App() {
 
         <section className="about-section ruled-section" id="about" aria-labelledby="about-title">
           <div className="about-heading">
-            <p className="about-label section-title">About</p>
-            <h1 id="about-title">
-              I like making complicated software easier to understand, use, and maintain.
-            </h1>
+            <h2 className="about-label section-title" id="about-title">About</h2>
           </div>
           <div className="about-copy">
             <p className="about-intro">
