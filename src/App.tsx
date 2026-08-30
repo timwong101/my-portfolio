@@ -6,6 +6,7 @@ import {
   Linkedin,
   Mail,
 } from 'lucide-react';
+import { useState } from 'react';
 
 const projects = [
   {
@@ -118,6 +119,9 @@ const experienceHighlights = [
 ];
 
 function App() {
+  const [expandedProject, setExpandedProject] = useState<string | null>(null);
+  const activeProject = projects.find((project) => project.title === expandedProject);
+
   return (
     <div className="site-shell">
       <header className="topbar">
@@ -187,23 +191,41 @@ function App() {
                       <Github size={16} /> View source <ArrowUpRight size={15} />
                     </a>
                   </div>
-                  <details className="project-details">
-                    <summary>
-                      <span>Engineering details</span>
-                      <span className="details-toggle" aria-hidden="true">+</span>
-                    </summary>
-                    <div className="case-study-grid">
-                      {project.caseStudy.map(({ title, description }) => (
-                        <section key={title}>
-                          <h4>{title}</h4>
-                          <p>{description}</p>
-                        </section>
-                      ))}
-                    </div>
-                  </details>
+                  <button
+                    className="project-details-trigger"
+                    type="button"
+                    aria-controls="project-engineering-details"
+                    aria-expanded={expandedProject === project.title}
+                    onClick={() => setExpandedProject((current) => (
+                      current === project.title ? null : project.title
+                    ))}
+                  >
+                    <span>Engineering details</span>
+                    <span className="details-toggle" aria-hidden="true">+</span>
+                  </button>
                 </div>
               </article>
             ))}
+            {activeProject && (
+              <section
+                className="project-details-panel"
+                id="project-engineering-details"
+                aria-labelledby="project-details-title"
+              >
+                <header>
+                  <h3 id="project-details-title">{activeProject.title}</h3>
+                  <p>Engineering details</p>
+                </header>
+                <div className="case-study-grid">
+                  {activeProject.caseStudy.map(({ title, description }) => (
+                    <section key={title}>
+                      <h4>{title}</h4>
+                      <p>{description}</p>
+                    </section>
+                  ))}
+                </div>
+              </section>
+            )}
           </div>
         </section>
 
