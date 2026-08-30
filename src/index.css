@@ -85,13 +85,13 @@ h2 { margin: 0; font-family: Georgia, serif; font-size: 28px; font-weight: 400; 
 .stack-grid ul { display: flex; flex-wrap: wrap; align-content: flex-start; gap: 6px; list-style: none; margin: 0; padding: 12px 0 0; border-top: 1px solid #d1cfc4; }
 .stack-grid li { padding: 6px 8px; border: 1px solid #d2d0c7; border-radius: 99px; color: #626760; font: 9px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .04em; }
 
-.contact-section { padding: 40px 44px 34px; background: #202020; color: #f4f4f2; position: relative; overflow: hidden; }
+.contact-section { padding: 40px 44px 34px; background: #fff; color: #1f2420; position: relative; overflow: hidden; }
 .contact-section h2 { line-height: 1.1; }
-.contact-bottom { margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(240,238,230,.25); display: flex; justify-content: space-between; align-items: center; gap: 24px; }
-.contact-bottom p { max-width: 480px; margin: 0; color: #c0c4bd; font-size: 13px; line-height: 1.5; }
-.contact-bottom p a { color: #f4f4f2; text-decoration: underline; text-underline-offset: 3px; }
-.contact-cta { display: inline-flex; align-items: center; gap: 9px; padding: 11px 14px; border: 1px solid rgba(244,244,242,.55); color: #f4f4f2; font: 10px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .06em; white-space: nowrap; transition: background .2s ease, color .2s ease; }
-.contact-cta:hover { background: #f4f4f2; color: #202020; }
+.contact-bottom { margin-top: 32px; padding-top: 24px; border-top: 1px solid #cac8bd; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.contact-bottom p { max-width: 480px; margin: 0; color: #626760; font-size: 13px; line-height: 1.5; }
+.contact-bottom p a { color: #1f2420; text-decoration: underline; text-underline-offset: 3px; }
+.contact-cta { display: inline-flex; align-items: center; gap: 9px; padding: 11px 14px; border: 1px solid #aaa99e; color: #1f2420; font: 10px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .06em; white-space: nowrap; transition: background .2s ease, color .2s ease; }
+.contact-cta:hover { background: #252525; color: #fff; }
 
 footer { display: flex; justify-content: space-between; align-items: center; min-height: 84px; padding: 20px 24px; font: 10px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .05em; }
 .socials { display: flex; gap: 8px; }
