@@ -7,40 +7,78 @@ import {
   Mail,
 } from 'lucide-react';
 
-const featuredProject = {
-  title: 'AI Infrastructure Research Terminal',
-  description:
-    'Evidence-grounded research terminal that turns SEC filings and investor-relations material into cited analysis, auditable evidence, and point-in-time research.',
-  tags: ['TypeScript', 'Next.js', 'PostgreSQL', 'Redis', 'BullMQ'],
-  url: 'https://github.com/timwong101/ai-infra-terminal',
-  image: '/ai-infrastructure-terminal.png',
-};
-
-const projectCaseStudy = [
+const projects = [
   {
-    title: 'Problem',
+    title: 'AI Infrastructure Research Terminal',
     description:
-      'AI infrastructure research is scattered across SEC filings and investor-relations material. Generic chat tools can summarize it, but rarely prove which evidence supports each claim or what was knowable at a selected point in time.',
+      'Evidence-grounded research terminal that turns SEC filings and investor-relations material into cited analysis, auditable evidence, and point-in-time research.',
+    tags: ['TypeScript', 'Next.js', 'PostgreSQL', 'Redis', 'BullMQ'],
+    url: 'https://github.com/timwong101/ai-infra-terminal',
+    image: '/ai-infrastructure-terminal.png',
+    imageAlt: 'AI Infrastructure Research Terminal comparison memo',
+    caseStudy: [
+      {
+        title: 'Problem',
+        description:
+          'AI infrastructure research is scattered across SEC filings and investor-relations material. Generic chat tools can summarize it, but rarely prove which evidence supports each claim or what was knowable at a selected point in time.',
+      },
+      {
+        title: 'Architecture',
+        description:
+          'A modular TypeScript monolith keeps deployment practical while separating ingestion, retrieval, verification, and replay. PostgreSQL stores research and operations data, Redis and BullMQ run durable jobs, and S3-compatible storage preserves checksum-addressed source artifacts.',
+      },
+      {
+        title: 'Grounding controls',
+        description:
+          'Retrieval is limited to analyst-accepted evidence above a quality floor. Citations are company-scoped, unsupported claims are removed, exact evidence packets are frozen, and evidence changes mark affected research stale.',
+      },
+      {
+        title: 'Quality gates',
+        description:
+          'Real SEC and IR documents form parser benchmarks with controlled promotion thresholds. Node and Playwright tests, versioned regression cases, numeric-fidelity checks, contradiction detection, and temporal-leakage diagnostics keep failures reviewable.',
+      },
+      {
+        title: 'Tradeoffs',
+        description:
+          'Interactive work uses BullMQ for retry and restart durability. Scheduled GitHub Actions run the bounded stage graph directly, avoiding a queue topology that would add complexity without recovery across short-lived runners.',
+      },
+    ],
   },
   {
-    title: 'Architecture',
+    title: 'GradientGuard',
     description:
-      'A modular TypeScript monolith keeps deployment practical while separating ingestion, retrieval, verification, and replay. PostgreSQL stores research and operations data, Redis and BullMQ run durable jobs, and S3-compatible storage preserves checksum-addressed source artifacts.',
-  },
-  {
-    title: 'Grounding controls',
-    description:
-      'Retrieval is limited to analyst-accepted evidence above a quality floor. Citations are company-scoped, unsupported claims are removed, exact evidence packets are frozen, and evidence changes mark affected research stale.',
-  },
-  {
-    title: 'Quality gates',
-    description:
-      'Real SEC and IR documents form parser benchmarks with controlled promotion thresholds. Node and Playwright tests, versioned regression cases, numeric-fidelity checks, contradiction detection, and temporal-leakage diagnostics keep failures reviewable.',
-  },
-  {
-    title: 'Tradeoffs',
-    description:
-      'Interactive work uses BullMQ for retry and restart durability. Scheduled GitHub Actions run the bounded stage graph directly, avoiding a queue topology that would add complexity without recovery across short-lived runners.',
+      'Accessibility-first gradient editor that measures text contrast across the full text region and finds the smallest practical correction when readability fails.',
+    tags: ['TypeScript', 'React', 'Vite', 'Canvas', 'Playwright'],
+    url: 'https://github.com/timwong101/GradientGuard',
+    image: '/gradientguard-preview.png',
+    imageAlt: 'GradientGuard desktop contrast-analysis workbench',
+    caseStudy: [
+      {
+        title: 'Problem',
+        description:
+          'Solid-color and midpoint-only contrast checks can miss small regions of a gradient where text becomes unreadable. GradientGuard evaluates the complete rectangular area behind the preview text.',
+      },
+      {
+        title: 'Contrast analysis',
+        description:
+          'A device-pixel-ratio-aware canvas renders the gradient and samples pixels beneath the DOM text rectangle. The contrast engine reports the worst ratio, its location, passing coverage, and an estimated WCAG 2.2 AA result.',
+      },
+      {
+        title: 'Architecture',
+        description:
+          'React useReducer manages editor state and bounded undo history, while pure modules isolate color math, gradient interpolation, contrast thresholds, fix optimization, and versioned URL serialization.',
+      },
+      {
+        title: 'Correction strategy',
+        description:
+          'The optimizer checks black and white text first, then uses deterministic binary search to find the minimum contrasting scrim opacity needed for every sampled point to pass.',
+      },
+      {
+        title: 'Quality gates',
+        description:
+          'Unit tests cover luminance, contrast ratios, thresholds, interpolation, scrim search, URL validation, and history. Playwright verifies the full edit, detect, correct, and export workflow.',
+      },
+    ],
   },
 ];
 
@@ -133,40 +171,39 @@ function App() {
             <div><h2 className="section-title" id="work-title">Projects</h2></div>
           </div>
           <div className="project-grid">
-            <article className="project-card featured-project">
-              <div className="project-visual">
-                <img
-                  src={featuredProject.image}
-                  alt="AI Infrastructure Research Terminal comparison memo"
-                />
-              </div>
-              <div className="project-copy">
-                <h3>{featuredProject.title}</h3>
-                <p className="project-description">{featuredProject.description}</p>
-                <ul className="project-tags">
-                  {featuredProject.tags.map((tag) => <li key={tag}>{tag}</li>)}
-                </ul>
-                <div className="project-actions">
-                  <a href={featuredProject.url} target="_blank" rel="noreferrer">
-                    <Github size={16} /> View source <ArrowUpRight size={15} />
-                  </a>
+            {projects.map((project) => (
+              <article className="project-card" key={project.title}>
+                <div className="project-visual">
+                  <img src={project.image} alt={project.imageAlt} />
                 </div>
-                <details className="project-details">
-                  <summary>
-                    <span>Engineering details</span>
-                    <span className="details-toggle" aria-hidden="true">+</span>
-                  </summary>
-                  <div className="case-study-grid">
-                    {projectCaseStudy.map(({ title, description }) => (
-                      <section key={title}>
-                        <h4>{title}</h4>
-                        <p>{description}</p>
-                      </section>
-                    ))}
+                <div className="project-copy">
+                  <h3>{project.title}</h3>
+                  <p className="project-description">{project.description}</p>
+                  <ul className="project-tags">
+                    {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
+                  </ul>
+                  <div className="project-actions">
+                    <a href={project.url} target="_blank" rel="noreferrer">
+                      <Github size={16} /> View source <ArrowUpRight size={15} />
+                    </a>
                   </div>
-                </details>
-              </div>
-            </article>
+                  <details className="project-details">
+                    <summary>
+                      <span>Engineering details</span>
+                      <span className="details-toggle" aria-hidden="true">+</span>
+                    </summary>
+                    <div className="case-study-grid">
+                      {project.caseStudy.map(({ title, description }) => (
+                        <section key={title}>
+                          <h4>{title}</h4>
+                          <p>{description}</p>
+                        </section>
+                      ))}
+                    </div>
+                  </details>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
