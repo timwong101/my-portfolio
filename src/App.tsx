@@ -15,6 +15,7 @@ const projects = [
       'Evidence-grounded research terminal that turns SEC filings and investor-relations material into cited analysis, auditable evidence, and point-in-time research.',
     tags: ['TypeScript', 'Next.js', 'PostgreSQL', 'Redis', 'BullMQ'],
     url: 'https://github.com/timwong101/ai-infra-terminal',
+    liveUrl: null,
     image: '/ai-infrastructure-terminal.png',
     imageAlt: 'AI Infrastructure Research Terminal comparison memo',
     caseStudy: [
@@ -51,6 +52,7 @@ const projects = [
       'Accessibility-first gradient editor that measures text contrast across the full text region and finds the smallest practical correction when readability fails.',
     tags: ['TypeScript', 'React', 'Vite', 'Canvas', 'Playwright'],
     url: 'https://github.com/timwong101/GradientGuard',
+    liveUrl: 'https://gradient-guard.vercel.app/',
     image: '/gradientguard-preview.png',
     imageAlt: 'GradientGuard desktop contrast-analysis workbench',
     caseStudy: [
@@ -190,6 +192,11 @@ function App() {
                     <a href={project.url} target="_blank" rel="noreferrer">
                       <Github size={16} /> View source <ArrowUpRight size={15} />
                     </a>
+                    {project.liveUrl && (
+                      <a href={project.liveUrl} target="_blank" rel="noreferrer">
+                        Live demo <ArrowUpRight size={15} />
+                      </a>
+                    )}
                   </div>
                   <button
                     className="project-details-trigger"

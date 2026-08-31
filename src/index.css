@@ -50,7 +50,7 @@ h2 { margin: 0; font-family: Georgia, serif; font-size: 28px; font-weight: 400; 
 .project-description { flex: 1; max-width: 670px; margin: 0; color: #626760; font-size: 13px; line-height: 1.6; }
 .project-tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 16px 0 0; margin: 20px 0 0; border-top: 1px solid #d1cfc4; }
 .project-tags li { border: 1px solid #bbbcb2; border-radius: 99px; padding: 5px 8px; font: 8px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .05em; }
-.project-actions { margin-top: 18px; }
+.project-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
 .project-actions a { display: inline-flex; align-items: center; gap: 7px; padding: 9px 11px; border: 1px solid #aaa99e; font: 9px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .06em; transition: background .2s ease, color .2s ease; }
 .project-actions a:hover { background: #252525; color: #fff; }
 .project-details-trigger { display: flex; align-items: center; justify-content: space-between; gap: 20px; width: 100%; margin-top: 22px; padding: 16px 0 0; border: 0; border-top: 1px solid #c7c5ba; background: transparent; color: inherit; cursor: pointer; font: 10px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .08em; }
