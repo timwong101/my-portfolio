@@ -272,7 +272,7 @@ function App() {
           <h2 className="section-title" id="contact-title">Still here?</h2>
           <div className="contact-bottom">
             <p>
-              If you have a project in mind or just want to talk shop, send me a note.
+              You might be interested in building, collaborating, or just chatting.
             </p>
             <a className="contact-cta" href="mailto:timwong101@gmail.com">
               Let’s talk <ArrowUpRight size={18} />
