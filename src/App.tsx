@@ -10,7 +10,7 @@ import { useState } from 'react';
 
 const projects = [
   {
-    title: 'AI Infrastructure Research Terminal',
+    title: 'AI Research Terminal',
     description:
       'Evidence-grounded research terminal that turns SEC filings and investor-relations material into cited analysis, auditable evidence, and point-in-time research.',
     tags: ['TypeScript', 'Next.js', 'PostgreSQL', 'Redis', 'BullMQ'],
