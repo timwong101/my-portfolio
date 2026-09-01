@@ -104,7 +104,7 @@ const techStack = [
   },
   {
     title: 'Infrastructure',
-    items: ['AWS', 'Docker', 'Kafka'],
+    items: ['AWS', 'Vercel', 'Docker', 'Kafka'],
   },
   {
     title: 'Tools',
