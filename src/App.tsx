@@ -17,33 +17,8 @@ const projects = [
     liveUrl: null,
     image: '/ai-infrastructure-terminal.png',
     imageAlt: 'AI Infrastructure Research Terminal comparison memo',
-    caseStudy: [
-      {
-        title: 'Problem',
-        description:
-          'Research on AI infrastructure is spread across SEC filings and investor materials. General chat tools can summarize those sources, but they often make it difficult to trace a claim back to the evidence or understand what was known at a specific time.',
-      },
-      {
-        title: 'Architecture',
-        description:
-          'I kept the system as a modular TypeScript application so it would be straightforward to deploy and maintain. PostgreSQL stores research and job data, Redis and BullMQ handle background work, and S3 compatible storage keeps the original source files by checksum.',
-      },
-      {
-        title: 'Grounding controls',
-        description:
-          'The system only uses evidence that has passed review and meets a quality threshold. Citations are limited to the correct company, unsupported claims are removed, and saved research is marked stale when its evidence changes.',
-      },
-      {
-        title: 'Quality gates',
-        description:
-          'Real SEC filings and investor documents serve as parser benchmarks. Node and Playwright tests cover regressions, numeric accuracy, contradictions, and information that falls outside the selected time period.',
-      },
-      {
-        title: 'Tradeoffs',
-        description:
-          'Interactive jobs run through BullMQ so they can be retried after a failure. Scheduled GitHub Actions run the same workflow directly because adding a queue to a temporary runner would add complexity without improving recovery.',
-      },
-    ],
+    engineeringSummary:
+      'I built the application as a modular TypeScript system backed by PostgreSQL, with Redis and BullMQ handling background jobs and source files stored by checksum. Grounding rules keep citations tied to reviewed evidence, and automated tests cover parsing, accuracy, contradictions, and time based research.',
   },
   {
     title: 'GradientGuard',
@@ -54,33 +29,8 @@ const projects = [
     liveUrl: 'https://gradient-guard.vercel.app/',
     image: '/gradientguard-preview.png',
     imageAlt: 'GradientGuard desktop contrast analysis workbench',
-    caseStudy: [
-      {
-        title: 'Problem',
-        description:
-          'Most contrast tools compare two solid colors or check one point in a gradient. That can miss a small area behind the text where contrast fails, so GradientGuard checks the full rectangular text area.',
-      },
-      {
-        title: 'Contrast analysis',
-        description:
-          'The gradient is rendered to a canvas that accounts for device pixel ratio. The app samples pixels beneath the text and reports the lowest contrast ratio, where it occurs, how much of the area passes, and the estimated WCAG 2.2 AA result.',
-      },
-      {
-        title: 'Architecture',
-        description:
-          'React useReducer manages editor state and undo history. Separate modules handle color math, gradient interpolation, contrast thresholds, correction logic, and URL sharing.',
-      },
-      {
-        title: 'Correction strategy',
-        description:
-          'The app checks black and white text first. If neither passes everywhere, it uses a binary search to find the lowest scrim opacity that makes every sampled point pass.',
-      },
-      {
-        title: 'Quality gates',
-        description:
-          'Unit tests cover luminance, contrast ratios, text size thresholds, gradient interpolation, correction logic, URL validation, and undo history. Playwright tests the complete flow from editing a gradient through exporting the result.',
-      },
-    ],
+    engineeringSummary:
+      'I built GradientGuard around a canvas based sampling engine that measures contrast across the full area behind text instead of checking a single color. It suggests the smallest accessible adjustment, while unit and Playwright tests cover the calculations and the complete editing workflow.',
   },
 ];
 
@@ -197,56 +147,49 @@ function App() {
               const detailsId = `${project.title.toLowerCase().replaceAll(' ', '-')}-details`;
 
               return (
-              <article className="project-card" key={project.title}>
-                <div className="project-visual">
-                  <img src={project.image} alt={project.imageAlt} />
-                </div>
-                <div className="project-copy">
-                  <h3>{project.title}</h3>
-                  <p className="project-description">{project.description}</p>
-                  <ul className="project-tags">
-                    {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
-                  </ul>
-                  <div className="project-actions">
-                    <a href={project.url} target="_blank" rel="noreferrer">
-                      <Github size={16} /> View source <ArrowUpRight size={15} />
-                    </a>
-                    {project.liveUrl && (
-                      <a href={project.liveUrl} target="_blank" rel="noreferrer">
-                        Live demo <ArrowUpRight size={15} />
+                <article className="project-card" key={project.title}>
+                  <div className="project-visual">
+                    <img src={project.image} alt={project.imageAlt} />
+                  </div>
+                  <div className="project-copy">
+                    <h3>{project.title}</h3>
+                    <p className="project-description">{project.description}</p>
+                    <ul className="project-tags">
+                      {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
+                    </ul>
+                    <div className="project-actions">
+                      <a href={project.url} target="_blank" rel="noreferrer">
+                        <Github size={16} /> View source <ArrowUpRight size={15} />
                       </a>
+                      {project.liveUrl && (
+                        <a href={project.liveUrl} target="_blank" rel="noreferrer">
+                          Live demo <ArrowUpRight size={15} />
+                        </a>
+                      )}
+                    </div>
+                    <button
+                      className="project-details-trigger"
+                      type="button"
+                      aria-controls={detailsId}
+                      aria-expanded={expandedProject === project.title}
+                      onClick={() => setExpandedProject((current) => (
+                        current === project.title ? null : project.title
+                      ))}
+                    >
+                      <span>Engineering details</span>
+                      <span className="details-toggle" aria-hidden="true">+</span>
+                    </button>
+                    {expandedProject === project.title && (
+                      <section
+                        className="project-details-panel"
+                        id={detailsId}
+                        aria-label={`${project.title} engineering details`}
+                      >
+                        <p>{project.engineeringSummary}</p>
+                      </section>
                     )}
                   </div>
-                  <button
-                    className="project-details-trigger"
-                    type="button"
-                    aria-controls={detailsId}
-                    aria-expanded={expandedProject === project.title}
-                    onClick={() => setExpandedProject((current) => (
-                      current === project.title ? null : project.title
-                    ))}
-                  >
-                    <span>Engineering details</span>
-                    <span className="details-toggle" aria-hidden="true">+</span>
-                  </button>
-                  {expandedProject === project.title && (
-                    <section
-                      className="project-details-panel"
-                      id={detailsId}
-                      aria-label={`${project.title} engineering details`}
-                    >
-                      <div className="case-study-grid">
-                        {project.caseStudy.map(({ title, description }) => (
-                          <section key={title}>
-                            <h4>{title}</h4>
-                            <p>{description}</p>
-                          </section>
-                        ))}
-                      </div>
-                    </section>
-                  )}
-                </div>
-              </article>
+                </article>
               );
             })}
           </div>
