@@ -162,6 +162,10 @@ function App() {
                 <span>Software Developer</span>
               </div>
             </div>
+            <a className="profile-email" href="mailto:timwong101@gmail.com">
+              <Mail size={12} strokeWidth={1.7} aria-hidden="true" />
+              Send an Email
+            </a>
           </div>
         </section>
 
