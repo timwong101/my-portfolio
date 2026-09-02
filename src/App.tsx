@@ -179,8 +179,8 @@ function App() {
             </p>
             <div>
               <p>
-                I enjoy taking projects from the initial idea through production and turning
-                complex problems into software people can actually use.
+                I enjoy taking ideas through production and turning complex problems into products
+                people can actually use.
               </p>
               <p>
                 I’m curious by nature and especially interested in how AI can improve both
