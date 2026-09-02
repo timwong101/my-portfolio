@@ -36,7 +36,6 @@ nav a:hover, .text-link:hover { opacity: .55; }
 .about-label { margin: 0; }
 .about-copy { display: grid; grid-template-columns: 1fr; gap: 16px; max-width: 620px; margin-top: 28px; padding-top: 20px; border-top: 1px solid #cac8bd; color: #555a54; font-size: 13px; line-height: 1.6; }
 .about-copy p { margin: 0; }
-.about-copy .about-intro { color: #303530; font-size: 14px; }
 .about-copy > div { display: grid; gap: 14px; }
 .text-link { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; font-family: var(--font-ui); font-size: 11px; text-transform: uppercase; letter-spacing: .07em; }
 
