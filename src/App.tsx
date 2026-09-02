@@ -182,8 +182,8 @@ function App() {
                 reliable products.
               </p>
               <p>
-                I’m always learning, with a particular interest in how AI can improve the way we
-                work and live.
+                I’m especially interested in AI, emerging technology, and the problems they can
+                help solve.
               </p>
             </div>
           </div>
