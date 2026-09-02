@@ -155,18 +155,16 @@ function App() {
           </div>
           <div className="about-copy">
             <p className="about-intro">
-              I’m Tim, a full stack software engineer working across frontend, backend, data, and
-              infrastructure.
+              I’m Tim, a full stack software engineer.
             </p>
             <div>
               <p>
-                Most of my professional experience is in financial services. I have modernized
-                authentication, built APIs and event services, and improved the tools teams use to
-                support production systems.
+                I enjoy taking projects from the initial idea through production and turning
+                complex problems into software people can actually use.
               </p>
               <p>
-                Outside of work, I build projects to explore AI, data products, and interface
-                design.
+                I’m curious by nature and especially interested in how AI can improve both
+                technical work and everyday life.
               </p>
             </div>
           </div>
