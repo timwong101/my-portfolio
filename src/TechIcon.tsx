@@ -3,7 +3,10 @@ import {
   Cloud,
   Coffee,
   Database,
+  Frame,
   TerminalSquare,
+  TestTubeDiagonal,
+  Workflow,
   type LucideIcon,
 } from 'lucide-react';
 import {
@@ -16,6 +19,7 @@ import {
   siGithub,
   siGithubcopilot,
   siJavascript,
+  siNextdotjs,
   siNodedotjs,
   siPostgresql,
   siPostman,
@@ -27,6 +31,7 @@ import {
   siTailwindcss,
   siTypescript,
   siVercel,
+  siVite,
   type SimpleIcon,
 } from 'simple-icons';
 
@@ -40,12 +45,14 @@ const brandIcons: Record<string, SimpleIcon> = {
   'Tailwind CSS': siTailwindcss,
   Figma: siFigma,
   '.NET': siDotnet,
+  'Next.js': siNextdotjs,
   'Node.js': siNodedotjs,
   PostgreSQL: siPostgresql,
   Redis: siRedis,
   Kafka: siApachekafka,
   Docker: siDocker,
   Vercel: siVercel,
+  Vite: siVite,
   Git: siGit,
   GitHub: siGithub,
   'GitHub Copilot': siGithubcopilot,
@@ -61,6 +68,9 @@ const genericIcons: Record<string, LucideIcon> = {
   'Oracle Database': Database,
   AWS: Cloud,
   Codex: TerminalSquare,
+  BullMQ: Workflow,
+  Canvas: Frame,
+  Playwright: TestTubeDiagonal,
 };
 
 type TechIconProps = {

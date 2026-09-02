@@ -155,9 +155,14 @@ function App() {
                   <div className="project-copy">
                     <h3>{project.title}</h3>
                     <p className="project-description">{project.description}</p>
-                    <ul className="project-tags">
-                      {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
-                    </ul>
+                  <ul className="project-tags">
+                    {project.tags.map((tag) => (
+                      <li key={tag}>
+                        <TechIcon name={tag} />
+                        <span>{tag}</span>
+                      </li>
+                    ))}
+                  </ul>
                     <div className="project-actions">
                       <a href={project.url} target="_blank" rel="noreferrer">
                         <Github size={16} /> View source <ArrowUpRight size={15} />
