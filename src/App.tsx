@@ -151,7 +151,17 @@ function App() {
           </div>
           <div className="profile-identity">
             <h1 id="profile-name">Tim Wong</h1>
-            <p>Full Stack Software Engineer</p>
+            <div
+              className="profile-ticker"
+              aria-label="Software Developer, Engineer, Always Learning"
+            >
+              <div className="profile-ticker-track" aria-hidden="true">
+                <span>Software Developer</span>
+                <span>Engineer</span>
+                <span>Always Learning</span>
+                <span>Software Developer</span>
+              </div>
+            </div>
           </div>
         </section>
 
