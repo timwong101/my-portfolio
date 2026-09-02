@@ -100,13 +100,13 @@ h2 { margin: 0; font-family: var(--font-display); font-size: 28px; font-weight: 
 .experience-highlights li { padding-left: 2px; }
 .experience-highlights li + li { margin-top: 11px; }
 
-.stack-section { padding: 38px var(--section-gutter) 46px; }
-.stack-heading { margin-bottom: 22px; }
-.stack-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #aaa99e; border-left: 1px solid #aaa99e; }
-.stack-grid article { min-height: 165px; padding: 18px; border-right: 1px solid #aaa99e; border-bottom: 1px solid #aaa99e; }
-.stack-grid h3 { margin: 0 0 12px; font-family: var(--font-display); font-size: 21px; font-weight: 400; letter-spacing: -.02em; }
-.stack-grid ul { display: flex; flex-wrap: wrap; align-content: flex-start; gap: 6px; list-style: none; margin: 0; padding: 12px 0 0; border-top: 1px solid #d1cfc4; }
-.stack-grid li { display: inline-flex; align-items: center; gap: 6px; padding: 6px 9px; border: 1px solid #d2d0c7; border-radius: 99px; color: #626760; font: 9px var(--font-ui); text-transform: uppercase; letter-spacing: .04em; }
+.stack-section { padding: 34px var(--section-gutter) 40px; }
+.stack-heading { margin-bottom: 16px; }
+.stack-grid { border-top: 1px solid #aaa99e; }
+.stack-grid article { display: grid; grid-template-columns: 112px 1fr; align-items: center; gap: 16px; min-height: 0; padding: 10px 0; border-bottom: 1px solid #d1cfc4; }
+.stack-grid h3 { margin: 0; font-family: var(--font-display); font-size: 18px; font-weight: 400; letter-spacing: -.02em; }
+.stack-grid ul { display: flex; flex-wrap: wrap; align-content: flex-start; gap: 5px; list-style: none; margin: 0; padding: 0; }
+.stack-grid li { display: inline-flex; align-items: center; gap: 5px; padding: 5px 8px; border: 1px solid #d2d0c7; border-radius: 99px; color: #626760; font: 9px var(--font-ui); text-transform: uppercase; letter-spacing: .04em; }
 .tech-icon { width: 13px; height: 13px; flex: 0 0 13px; }
 .tech-icon-generic { color: #777a73; stroke-width: 1.8; }
 
@@ -149,9 +149,9 @@ footer { display: flex; justify-content: space-between; align-items: center; min
   .project-copy h3 { font-size: 24px; }
   .experience-content { padding: 24px var(--section-gutter) 36px; }
   .experience-heading { grid-template-columns: 1fr; padding-bottom: 28px; }
-  .stack-section { padding: 32px var(--section-gutter) 40px; }
-  .stack-grid { grid-template-columns: 1fr; }
-  .stack-grid article { min-height: 0; }
+  .stack-section { padding: 32px var(--section-gutter) 38px; }
+  .stack-grid article { grid-template-columns: 1fr; gap: 8px; padding: 13px 0; }
+  .stack-grid h3 { font-size: 19px; }
   .contact-section { padding: 36px var(--section-gutter) 28px; }
   .contact-bottom { flex-direction: column; align-items: flex-start; gap: 20px; }
   footer { align-items: flex-start; flex-direction: column; gap: 18px; }
