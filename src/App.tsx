@@ -18,7 +18,7 @@ const projects = [
     image: '/ai-infrastructure-terminal.png',
     imageAlt: 'AI Infrastructure Research Terminal comparison memo',
     engineeringSummary:
-      'I built the application as a modular TypeScript system backed by PostgreSQL, with Redis and BullMQ handling background jobs and source files stored by checksum. Grounding rules keep citations tied to reviewed evidence, and automated tests cover parsing, accuracy, contradictions, and time based research.',
+      'The application uses a modular TypeScript architecture backed by PostgreSQL, with Redis and BullMQ handling background jobs and source files stored by checksum. Grounding rules keep citations tied to reviewed evidence, and automated tests cover parsing, accuracy, contradictions, and time based research.',
   },
   {
     title: 'GradientGuard',
@@ -30,7 +30,7 @@ const projects = [
     image: '/gradientguard-preview.png',
     imageAlt: 'GradientGuard desktop contrast analysis workbench',
     engineeringSummary:
-      'I built GradientGuard around a canvas based sampling engine that measures contrast across the full area behind text instead of checking a single color. It suggests the smallest accessible adjustment, while unit and Playwright tests cover the calculations and the complete editing workflow.',
+      'GradientGuard uses a canvas based sampling engine to measure contrast across the full area behind text instead of checking a single color. It suggests the smallest accessible adjustment, while unit and Playwright tests cover the calculations and the complete editing workflow.',
   },
 ];
 
@@ -179,15 +179,18 @@ function App() {
                       <span>Engineering details</span>
                       <span className="details-toggle" aria-hidden="true">+</span>
                     </button>
-                    {expandedProject === project.title && (
-                      <section
-                        className="project-details-panel"
-                        id={detailsId}
-                        aria-label={`${project.title} engineering details`}
-                      >
-                        <p>{project.engineeringSummary}</p>
-                      </section>
-                    )}
+                    <section
+                      className="project-details-panel"
+                      id={detailsId}
+                      aria-label={`${project.title} engineering details`}
+                      aria-hidden={expandedProject !== project.title}
+                    >
+                      <div className="project-details-inner">
+                        <div className="project-details-content">
+                          <p>{project.engineeringSummary}</p>
+                        </div>
+                      </div>
+                    </section>
                   </div>
                 </article>
               );

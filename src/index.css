@@ -82,7 +82,10 @@ h2 { margin: 0; font-family: var(--font-display); font-size: 28px; font-weight: 
 .project-details-trigger:focus-visible { outline: 1px solid #252525; outline-offset: 4px; }
 .details-toggle { display: grid; place-items: center; width: 24px; height: 24px; border: 1px solid #aaa99e; font-size: 16px; line-height: 1; transition: transform .2s ease; }
 .project-details-trigger[aria-expanded='true'] .details-toggle { transform: rotate(45deg); }
-.project-details-panel { margin-top: 14px; padding-top: 14px; border-top: 1px solid #d1cfc4; }
+.project-details-panel { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows .36s cubic-bezier(.22, 1, .36, 1), opacity .2s ease; }
+.project-details-panel[aria-hidden='false'] { grid-template-rows: 1fr; opacity: 1; }
+.project-details-inner { min-height: 0; overflow: hidden; }
+.project-details-content { margin-top: 14px; padding-top: 14px; border-top: 1px solid #d1cfc4; }
 .project-details-panel p { margin: 0; color: #626760; font-size: 12px; line-height: 1.65; }
 
 .experience-content { padding: 24px 24px 46px; }
