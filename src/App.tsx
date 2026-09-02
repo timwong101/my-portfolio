@@ -70,20 +70,30 @@ const experienceHighlights = [
   'Supported production systems and expanded automated test coverage with Java and Gherkin.',
 ];
 
+function scrollToSection(sectionId?: string) {
+  if (sectionId) {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
+}
+
 function App() {
   const [expandedProject, setExpandedProject] = useState<string | null>(null);
 
   return (
     <div className="site-shell">
       <header className="topbar">
-        <a className="wordmark" href="/" aria-label="Timothy Wong, home">
+        <button className="wordmark" type="button" aria-label="Timothy Wong, home" onClick={() => scrollToSection()}>
           <span>TW</span>
-        </a>
+        </button>
         <nav aria-label="Main navigation">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
+          <button type="button" onClick={() => scrollToSection('about')}>About</button>
+          <button type="button" onClick={() => scrollToSection('projects')}>Projects</button>
+          <button type="button" onClick={() => scrollToSection('experience')}>Experience</button>
+          <button type="button" onClick={() => scrollToSection('contact')}>Contact</button>
         </nav>
       </header>
 

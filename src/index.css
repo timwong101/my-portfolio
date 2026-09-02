@@ -23,10 +23,12 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .site-shell { width: min(800px, calc(100% - 40px)); margin: 0 auto; border-inline: 1px solid #cac8bd; }
 .topbar { position: sticky; top: 0; z-index: 20; height: 62px; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; border-bottom: 1px solid #cac8bd; background: #fff; font-family: var(--font-ui); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; }
-.wordmark { display: flex; align-items: center; gap: 12px; font-weight: 700; }
+.wordmark { display: flex; align-items: center; gap: 12px; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; font-weight: 700; text-transform: inherit; letter-spacing: inherit; cursor: pointer; }
 nav { display: flex; gap: 22px; }
-nav a, .text-link { transition: opacity .2s ease; }
-nav a:hover, .text-link:hover { opacity: .55; }
+nav button { padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-transform: inherit; letter-spacing: inherit; cursor: pointer; }
+nav button, .wordmark, .text-link { transition: opacity .2s ease; }
+nav button:hover, .wordmark:hover, .text-link:hover { opacity: .55; }
+nav button:focus-visible, .wordmark:focus-visible { outline: 1px solid #252525; outline-offset: 5px; }
 .ruled-section { border-bottom: 1px solid #cac8bd; }
 
 .profile-hero { position: relative; display: grid; grid-template-columns: 108px 1fr; align-items: center; gap: 28px; padding: 34px 44px; overflow: hidden; }
