@@ -128,7 +128,7 @@ function App() {
     <div className="site-shell">
       <header className="topbar">
         <a className="wordmark" href="#top" aria-label="Timothy Wong, home">
-          <span>Tim Wong</span>
+          <span>TW</span>
         </a>
         <nav aria-label="Main navigation">
           <a href="#about">About</a>
