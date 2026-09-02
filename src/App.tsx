@@ -179,12 +179,12 @@ function App() {
             </p>
             <div>
               <p>
-                I enjoy taking ideas through production and turning complex problems into products
-                people can actually use.
+                I enjoy taking ideas through production and turning complex problems into useful,
+                reliable products.
               </p>
               <p>
-                I’m curious by nature and especially interested in how AI can improve both
-                technical work and everyday life.
+                I’m always learning, with a particular interest in how AI can improve the way we
+                work and live.
               </p>
             </div>
           </div>
