@@ -139,15 +139,21 @@ function App() {
       </header>
 
       <main id="top">
-        <figure className="hero-banner">
-          <img
-            src="/abstract-portrait.png"
-            alt="Abstract black and white portrait"
-            width="1586"
-            height="992"
-            fetchPriority="high"
-          />
-        </figure>
+        <section className="profile-hero ruled-section" aria-labelledby="profile-name">
+          <div className="profile-headshot">
+            <img
+              src="/tim-headshot.png"
+              alt="Abstract portrait of Tim Wong"
+              width="1254"
+              height="1254"
+              fetchPriority="high"
+            />
+          </div>
+          <div className="profile-identity">
+            <h1 id="profile-name">Tim Wong</h1>
+            <p>Full Stack Software Engineer</p>
+          </div>
+        </section>
 
         <section className="about-section ruled-section" id="about" aria-labelledby="about-title">
           <div className="about-heading">
