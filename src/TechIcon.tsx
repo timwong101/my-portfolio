@@ -1,0 +1,88 @@
+import {
+  Braces,
+  Cloud,
+  Coffee,
+  Database,
+  TerminalSquare,
+  type LucideIcon,
+} from 'lucide-react';
+import {
+  siAngular,
+  siApachekafka,
+  siDocker,
+  siDotnet,
+  siFigma,
+  siGit,
+  siGithub,
+  siGithubcopilot,
+  siJavascript,
+  siNodedotjs,
+  siPostgresql,
+  siPostman,
+  siPython,
+  siReact,
+  siRedis,
+  siSharp,
+  siSplunk,
+  siTailwindcss,
+  siTypescript,
+  siVercel,
+  type SimpleIcon,
+} from 'simple-icons';
+
+const brandIcons: Record<string, SimpleIcon> = {
+  TypeScript: siTypescript,
+  JavaScript: siJavascript,
+  Python: siPython,
+  'C#': siSharp,
+  React: siReact,
+  Angular: siAngular,
+  'Tailwind CSS': siTailwindcss,
+  Figma: siFigma,
+  '.NET': siDotnet,
+  'Node.js': siNodedotjs,
+  PostgreSQL: siPostgresql,
+  Redis: siRedis,
+  Kafka: siApachekafka,
+  Docker: siDocker,
+  Vercel: siVercel,
+  Git: siGit,
+  GitHub: siGithub,
+  'GitHub Copilot': siGithubcopilot,
+  Postman: siPostman,
+  Splunk: siSplunk,
+};
+
+const genericIcons: Record<string, LucideIcon> = {
+  Java: Coffee,
+  SQL: Database,
+  'REST APIs': Braces,
+  'Microsoft SQL Server': Database,
+  'Oracle Database': Database,
+  AWS: Cloud,
+  Codex: TerminalSquare,
+};
+
+type TechIconProps = {
+  name: string;
+};
+
+export function TechIcon({ name }: TechIconProps) {
+  const brandIcon = brandIcons[name];
+
+  if (brandIcon) {
+    return (
+      <svg
+        className="tech-icon"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        style={{ color: `#${brandIcon.hex}` }}
+      >
+        <path fill="currentColor" d={brandIcon.path} />
+      </svg>
+    );
+  }
+
+  const GenericIcon = genericIcons[name] ?? Braces;
+  return <GenericIcon className="tech-icon tech-icon-generic" aria-hidden="true" />;
+}

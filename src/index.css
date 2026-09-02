@@ -103,7 +103,9 @@ h2 { margin: 0; font-family: var(--font-display); font-size: 28px; font-weight: 
 .stack-grid article { min-height: 165px; padding: 18px; border-right: 1px solid #aaa99e; border-bottom: 1px solid #aaa99e; }
 .stack-grid h3 { margin: 0 0 12px; font-family: var(--font-display); font-size: 21px; font-weight: 400; letter-spacing: -.02em; }
 .stack-grid ul { display: flex; flex-wrap: wrap; align-content: flex-start; gap: 6px; list-style: none; margin: 0; padding: 12px 0 0; border-top: 1px solid #d1cfc4; }
-.stack-grid li { padding: 6px 8px; border: 1px solid #d2d0c7; border-radius: 99px; color: #626760; font: 9px var(--font-ui); text-transform: uppercase; letter-spacing: .04em; }
+.stack-grid li { display: inline-flex; align-items: center; gap: 6px; padding: 6px 9px; border: 1px solid #d2d0c7; border-radius: 99px; color: #626760; font: 9px var(--font-ui); text-transform: uppercase; letter-spacing: .04em; }
+.tech-icon { width: 13px; height: 13px; flex: 0 0 13px; }
+.tech-icon-generic { color: #777a73; stroke-width: 1.8; }
 
 .contact-section { padding: 40px 44px 34px; background: #fff; color: #1f2420; }
 .contact-section h2 { line-height: 1.1; }

@@ -6,6 +6,7 @@ import {
   Mail,
 } from 'lucide-react';
 import { useState } from 'react';
+import { TechIcon } from './TechIcon';
 
 const projects = [
   {
@@ -224,7 +225,14 @@ function App() {
             {techStack.map(({ title, items }) => (
               <article key={title}>
                 <h3>{title}</h3>
-                <ul>{items.map((item) => <li key={item}>{item}</li>)}</ul>
+                <ul>
+                  {items.map((item) => (
+                    <li key={item}>
+                      <TechIcon name={item} />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </article>
             ))}
           </div>
