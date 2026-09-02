@@ -121,7 +121,6 @@ const experienceHighlights = [
 
 function App() {
   const [expandedProject, setExpandedProject] = useState<string | null>(null);
-  const activeProject = projects.find((project) => project.title === expandedProject);
 
   return (
     <div className="site-shell">
@@ -194,7 +193,10 @@ function App() {
             <div><h2 className="section-title" id="work-title">Projects</h2></div>
           </div>
           <div className="project-grid">
-            {projects.map((project) => (
+            {projects.map((project) => {
+              const detailsId = `${project.title.toLowerCase().replaceAll(' ', '-')}-details`;
+
+              return (
               <article className="project-card" key={project.title}>
                 <div className="project-visual">
                   <img src={project.image} alt={project.imageAlt} />
@@ -218,7 +220,7 @@ function App() {
                   <button
                     className="project-details-trigger"
                     type="button"
-                    aria-controls="project-engineering-details"
+                    aria-controls={detailsId}
                     aria-expanded={expandedProject === project.title}
                     onClick={() => setExpandedProject((current) => (
                       current === project.title ? null : project.title
@@ -227,29 +229,26 @@ function App() {
                     <span>Engineering details</span>
                     <span className="details-toggle" aria-hidden="true">+</span>
                   </button>
+                  {expandedProject === project.title && (
+                    <section
+                      className="project-details-panel"
+                      id={detailsId}
+                      aria-label={`${project.title} engineering details`}
+                    >
+                      <div className="case-study-grid">
+                        {project.caseStudy.map(({ title, description }) => (
+                          <section key={title}>
+                            <h4>{title}</h4>
+                            <p>{description}</p>
+                          </section>
+                        ))}
+                      </div>
+                    </section>
+                  )}
                 </div>
               </article>
-            ))}
-            {activeProject && (
-              <section
-                className="project-details-panel"
-                id="project-engineering-details"
-                aria-labelledby="project-details-title"
-              >
-                <header>
-                  <h3 id="project-details-title">{activeProject.title}</h3>
-                  <p>Engineering details</p>
-                </header>
-                <div className="case-study-grid">
-                  {activeProject.caseStudy.map(({ title, description }) => (
-                    <section key={title}>
-                      <h4>{title}</h4>
-                      <p>{description}</p>
-                    </section>
-                  ))}
-                </div>
-              </section>
-            )}
+              );
+            })}
           </div>
         </section>
 
