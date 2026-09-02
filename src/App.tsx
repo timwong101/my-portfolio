@@ -126,7 +126,7 @@ function App() {
   return (
     <div className="site-shell">
       <header className="topbar">
-        <a className="wordmark" href="#top" aria-label="Timothy Wong, home">
+        <a className="wordmark" href="/" aria-label="Timothy Wong, home">
           <span>TW</span>
         </a>
         <nav aria-label="Main navigation">
@@ -137,7 +137,7 @@ function App() {
         </nav>
       </header>
 
-      <main id="top">
+      <main>
         <section className="profile-hero ruled-section" aria-labelledby="profile-name">
           <div className="profile-headshot">
             <img
