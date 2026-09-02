@@ -1,5 +1,4 @@
 import {
-  ArrowUp,
   ArrowUpRight,
   BriefcaseBusiness,
   Github,
@@ -305,7 +304,6 @@ function App() {
           <a href="mailto:timwong101@gmail.com" aria-label="Email Timothy Wong"><Mail size={18} /></a>
           <a href="https://github.com/timwong101" target="_blank" rel="noreferrer" aria-label="Timothy Wong on GitHub"><Github size={18} /></a>
           <a href="https://www.linkedin.com/in/timothywong101/" target="_blank" rel="noreferrer" aria-label="Timothy Wong on LinkedIn"><Linkedin size={18} /></a>
-          <a href="#top" aria-label="Back to top"><ArrowUp size={18} /></a>
         </div>
       </footer>
     </div>
