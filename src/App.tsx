@@ -182,8 +182,8 @@ function App() {
                 reliable products.
               </p>
               <p>
-                I’m especially interested in AI, emerging technology, and the problems they can
-                help solve.
+                I’m especially interested in AI, emerging technology, and their potential to shape
+                what comes next.
               </p>
             </div>
           </div>
