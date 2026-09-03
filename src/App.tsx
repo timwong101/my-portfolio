@@ -227,8 +227,8 @@ function App() {
                 height="42"
               />
               <div>
-                <p className="meta">Charles Schwab · 2021 to Present</p>
-                <h3 className="experience-role">Software Engineer</h3>
+                <h3 className="experience-company">Charles Schwab</h3>
+                <p className="meta">Software Engineer · 2021 to Present</p>
               </div>
             </div>
             <ul className="experience-highlights">

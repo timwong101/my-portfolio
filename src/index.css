@@ -94,8 +94,8 @@ h2 { margin: 0; font-family: var(--font-display); font-size: 28px; font-weight: 
 .experience-content { padding: 24px var(--section-gutter) 46px; }
 .experience-heading { display: grid; grid-template-columns: 46px 1fr; gap: 18px; padding-bottom: 30px; }
 .experience-logo { display: block; width: 42px; height: 42px; object-fit: contain; }
-.meta { margin: 0 0 15px; color: #6a6e68; font: 10px var(--font-ui); text-transform: uppercase; letter-spacing: .09em; }
-.experience-role { margin: 0; font-family: var(--font-display); font-size: clamp(30px, 3.6vw, 44px); font-weight: 400; line-height: 1.04; letter-spacing: -.03em; }
+.experience-company { margin: 0 0 6px; color: #1f2420; font-family: var(--font-display); font-size: clamp(28px, 3.4vw, 38px); font-weight: 400; line-height: 1; letter-spacing: -.03em; }
+.meta { margin: 0; color: #6a6e68; font: 10px var(--font-ui); text-transform: uppercase; letter-spacing: .09em; }
 .experience-highlights { list-style: disc; margin: 0; padding: 22px 0 0 18px; border-top: 1px solid #c7c5ba; color: #5c615b; font-size: 13px; line-height: 1.55; }
 .experience-highlights li { padding-left: 2px; }
 .experience-highlights li + li { margin-top: 11px; }
