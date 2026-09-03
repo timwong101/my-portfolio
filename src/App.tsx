@@ -138,8 +138,8 @@ function App() {
             </p>
             <div>
               <p>
-                I enjoy taking ideas through production and turning complex problems into useful,
-                reliable products.
+                I enjoy owning projects from start to finish and turning complex problems into
+                useful, reliable products.
               </p>
               <p>
                 I’m especially interested in AI, emerging technology, and their potential to shape
