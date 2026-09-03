@@ -1,6 +1,5 @@
 import {
   ArrowUpRight,
-  BriefcaseBusiness,
   Github,
   Linkedin,
   Mail,
@@ -220,7 +219,13 @@ function App() {
           </div>
           <div className="experience-content">
             <div className="experience-heading">
-              <div className="experience-icon"><BriefcaseBusiness size={21} /></div>
+              <img
+                className="experience-logo"
+                src="/charles-schwab-logo.svg"
+                alt="Charles Schwab"
+                width="42"
+                height="42"
+              />
               <div>
                 <p className="meta">Charles Schwab · 2021 to Present</p>
                 <h3 className="experience-role">Software Engineer</h3>
