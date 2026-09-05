@@ -7,6 +7,7 @@ import {
   Sun,
 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { flushSync } from 'react-dom';
 import { TechIcon } from './TechIcon';
 
 const projects = [
@@ -88,6 +89,7 @@ function App() {
   const [expandedProject, setExpandedProject] = useState<string | null>(null);
   const [theme, setTheme] = useState(() => document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
   const manualTheme = useRef(false);
+  const themeTransitionRunning = useRef(false);
 
   useEffect(() => {
     const media = window.matchMedia('(prefers-color-scheme: dark)');
@@ -114,11 +116,46 @@ function App() {
     document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#171918' : '#ffffff');
   }, [theme]);
 
-  function toggleTheme() {
+  async function toggleTheme(event: React.MouseEvent<HTMLButtonElement>) {
+    if (themeTransitionRunning.current) return;
     const next = theme === 'dark' ? 'light' : 'dark';
     try { localStorage.setItem('portfolio-theme', next); } catch {}
     manualTheme.current = true;
-    setTheme(next);
+    const update = () => {
+      flushSync(() => setTheme(next));
+      document.documentElement.dataset.theme = next;
+      document.documentElement.style.colorScheme = next;
+    };
+    if (!document.startViewTransition || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      update();
+      return;
+    }
+
+    // The icon, rather than its larger hit area, is the visual origin.
+    const bounds = (event.currentTarget.querySelector('svg') ?? event.currentTarget).getBoundingClientRect();
+    const x = bounds.left + bounds.width / 2;
+    const y = bounds.top + bounds.height / 2;
+    const root = document.documentElement;
+    const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    root.style.setProperty('--theme-reveal-x', `${x}px`);
+    root.style.setProperty('--theme-reveal-y', `${y}px`);
+    root.style.setProperty('--theme-reveal-radius', `${Math.ceil(radius) + 2}px`);
+    root.classList.add('theme-changing');
+    themeTransitionRunning.current = true;
+    try {
+      const transition = document.startViewTransition(update);
+      // A hidden tab or interrupted snapshot can skip animation without failing the switch.
+      void transition.ready.catch(() => {});
+      await transition.finished;
+    } catch {
+      update();
+    } finally {
+      themeTransitionRunning.current = false;
+      root.classList.remove('theme-changing');
+      root.style.removeProperty('--theme-reveal-x');
+      root.style.removeProperty('--theme-reveal-y');
+      root.style.removeProperty('--theme-reveal-radius');
+    }
   }
 
   return (
