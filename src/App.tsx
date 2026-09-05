@@ -30,7 +30,7 @@ const projects = [
     image: '/gradientguard-preview.webp',
     imageAlt: 'GradientGuard desktop contrast analysis workbench',
     engineeringSummary:
-      'GradientGuard uses a canvas based sampling engine to measure contrast across the full area behind text instead of checking a single color. It suggests the smallest accessible adjustment, while unit and Playwright tests cover the calculations and the complete editing workflow.',
+      'GradientGuard samples the background behind text to find contrast issues that a single color check can miss. It checks alternative text colors, then calculates the lightest overlay needed to meet the contrast target. Everything runs in the browser, with CSS export and shareable designs.',
   },
 ];
 
