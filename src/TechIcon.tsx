@@ -59,6 +59,7 @@ const brandIcons: Record<string, SimpleIcon> = {
 };
 
 const genericIcons: Record<string, LucideIcon> = {
+  'C#': Braces,
   Java: Coffee,
   SQL: Database,
   'REST APIs': Braces,
@@ -76,10 +77,6 @@ type TechIconProps = {
 };
 
 export function TechIcon({ name }: TechIconProps) {
-  if (name === 'C#') {
-    return <img className="tech-icon" src="/csharp.svg" alt="" aria-hidden="true" width="13" height="13" />;
-  }
-
   const brandIcon = brandIcons[name];
 
   if (brandIcon) {
