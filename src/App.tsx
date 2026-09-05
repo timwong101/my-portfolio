@@ -11,7 +11,7 @@ const projects = [
   {
     title: 'AI Infrastructure Research',
     description:
-      'A research tool that turns SEC filings and investor materials into cited analysis, traceable evidence, and a record of what was known at a given time.',
+      'Research SEC filings and investor materials with answers linked to their sources.',
     tags: ['TypeScript', 'Next.js', 'PostgreSQL', 'Redis', 'BullMQ'],
     url: 'https://github.com/timwong101/ai-infra-terminal',
     liveUrl: null,
@@ -23,7 +23,7 @@ const projects = [
   {
     title: 'GradientGuard',
     description:
-      'A gradient editor that checks contrast across the entire area behind text and suggests the smallest change needed to make it readable.',
+      'Create gradients, check text contrast across the full background, and find small adjustments that improve readability.',
     tags: ['TypeScript', 'React', 'Vite', 'Canvas', 'Playwright'],
     url: 'https://github.com/timwong101/GradientGuard',
     liveUrl: 'https://gradient-guard.vercel.app/',
