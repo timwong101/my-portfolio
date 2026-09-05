@@ -89,6 +89,11 @@ h2 { margin: 0; font-family: var(--font-display); font-size: 28px; font-weight: 
 .project-details-content { margin-top: 14px; padding-top: 14px; border-top: 1px solid #d1cfc4; }
 .project-details-panel p { margin: 0; color: #626760; font-size: 12px; line-height: 1.65; }
 
+@media (min-width: 761px) {
+  .project-description { flex: none; min-height: 3lh; }
+  .project-tags { min-height: calc(16px + 1px + 2 * 16.8px + 8px); align-content: start; }
+}
+
 .experience-content { padding: 24px var(--section-gutter) 46px; }
 .experience-heading { display: grid; grid-template-columns: 42px 1fr; align-items: center; gap: 14px; padding-bottom: 30px; }
 .experience-logo { display: block; width: 42px; height: 42px; object-fit: contain; }
