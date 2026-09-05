@@ -38,5 +38,3 @@ pnpm preview
 ## Updating the content
 
 The main page content and project data live in `src/App.tsx`. The visual system and responsive styles live in `src/index.css`.
-
-Before publishing the site, replace the placeholder projects and add the correct email, GitHub, LinkedIn, and résumé links.

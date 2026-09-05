@@ -15,7 +15,7 @@ const projects = [
     tags: ['TypeScript', 'Next.js', 'PostgreSQL', 'Redis', 'BullMQ'],
     url: 'https://github.com/timwong101/ai-infra-terminal',
     liveUrl: null,
-    image: '/ai-infrastructure-terminal.png',
+    image: '/ai-infrastructure-terminal.webp',
     imageAlt: 'AI Infrastructure Research Terminal comparison memo',
     engineeringSummary:
       'The application uses a modular TypeScript architecture backed by PostgreSQL, with Redis and BullMQ handling background jobs and source files stored by checksum. Grounding rules keep citations tied to reviewed evidence, and automated tests cover parsing, accuracy, contradictions, and time based research.',
@@ -27,7 +27,7 @@ const projects = [
     tags: ['TypeScript', 'React', 'Vite', 'Canvas', 'Playwright'],
     url: 'https://github.com/timwong101/GradientGuard',
     liveUrl: 'https://gradient-guard.vercel.app/',
-    image: '/gradientguard-preview.png',
+    image: '/gradientguard-preview.webp',
     imageAlt: 'GradientGuard desktop contrast analysis workbench',
     engineeringSummary:
       'GradientGuard uses a canvas based sampling engine to measure contrast across the full area behind text instead of checking a single color. It suggests the smallest accessible adjustment, while unit and Playwright tests cover the calculations and the complete editing workflow.',
@@ -70,10 +70,13 @@ const experienceHighlights = [
 ];
 
 function scrollToSection(sectionId?: string) {
+  const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth';
+  const target = document.getElementById(sectionId ?? 'main-content');
+  target?.focus({ preventScroll: true });
   if (sectionId) {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    target?.scrollIntoView({ behavior });
   } else {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior });
   }
 
   window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
@@ -84,6 +87,10 @@ function App() {
 
   return (
     <div className="site-shell">
+      <a className="skip-link" href="#main-content" onClick={(event) => {
+        event.preventDefault();
+        scrollToSection('main-content');
+      }}>Skip to content</a>
       <header className="topbar">
         <button className="wordmark" type="button" aria-label="Timothy Wong, home" onClick={() => scrollToSection()}>
           <span>TW</span>
@@ -96,14 +103,14 @@ function App() {
         </nav>
       </header>
 
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="profile-hero ruled-section" aria-labelledby="profile-name">
           <div className="profile-headshot">
             <img
-              src="/tim-headshot.png"
+              src="/tim-headshot.webp"
               alt="Abstract portrait of Tim Wong"
-              width="1254"
-              height="1254"
+              width="324"
+              height="324"
               fetchPriority="high"
             />
           </div>
@@ -127,7 +134,7 @@ function App() {
           </div>
         </section>
 
-        <section className="about-section ruled-section" id="about" aria-labelledby="about-title">
+        <section className="about-section ruled-section" id="about" tabIndex={-1} aria-labelledby="about-title">
           <div className="about-heading">
             <h2 className="about-label section-title" id="about-title">About</h2>
           </div>
@@ -148,7 +155,7 @@ function App() {
           </div>
         </section>
 
-        <section className="work-section ruled-section" id="projects" aria-labelledby="work-title">
+        <section className="work-section ruled-section" id="projects" tabIndex={-1} aria-labelledby="work-title">
           <div className="section-heading">
             <div><h2 className="section-title" id="work-title">Projects</h2></div>
           </div>
@@ -159,7 +166,7 @@ function App() {
               return (
                 <article className="project-card" key={project.title}>
                   <div className="project-visual">
-                    <img src={project.image} alt={project.imageAlt} />
+                    <img src={project.image} alt={project.imageAlt} width="1200" height="750" loading="lazy" decoding="async" />
                   </div>
                   <div className="project-copy">
                     <h3>{project.title}</h3>
@@ -213,7 +220,7 @@ function App() {
           </div>
         </section>
 
-        <section className="experience-section ruled-section" id="experience" aria-labelledby="experience-title">
+        <section className="experience-section ruled-section" id="experience" tabIndex={-1} aria-labelledby="experience-title">
           <div className="section-label">
             <h2 className="section-title" id="experience-title">Experience</h2>
           </div>
@@ -258,7 +265,7 @@ function App() {
           </div>
         </section>
 
-        <section className="contact-section ruled-section" id="contact" aria-labelledby="contact-title">
+        <section className="contact-section ruled-section" id="contact" tabIndex={-1} aria-labelledby="contact-title">
           <h2 className="section-title" id="contact-title">Still here?</h2>
           <div className="contact-bottom">
             <p>
