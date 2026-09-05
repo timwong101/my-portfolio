@@ -89,6 +89,7 @@ export function TechIcon({ name }: TechIconProps) {
     return (
       <svg
         className="tech-icon"
+        data-tech={name}
         viewBox="0 0 24 24"
         aria-hidden="true"
         style={{ color: `#${brandIcon.hex}` }}

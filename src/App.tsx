@@ -3,8 +3,10 @@ import {
   Github,
   Linkedin,
   Mail,
+  Moon,
+  Sun,
 } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { TechIcon } from './TechIcon';
 
 const projects = [
@@ -41,7 +43,7 @@ const techStack = [
   },
   {
     title: 'Frontend',
-    items: ['React', 'Angular', 'Tailwind CSS'],
+    items: ['React', 'Next.js', 'Angular', 'Tailwind CSS'],
   },
   {
     title: 'Backend',
@@ -84,6 +86,40 @@ function scrollToSection(sectionId?: string) {
 
 function App() {
   const [expandedProject, setExpandedProject] = useState<string | null>(null);
+  const [theme, setTheme] = useState(() => document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
+  const manualTheme = useRef(false);
+
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+    try { manualTheme.current = ['light', 'dark'].includes(localStorage.getItem('portfolio-theme') ?? ''); } catch {}
+    const syncSystem = () => {
+      if (!manualTheme.current) setTheme(media.matches ? 'dark' : 'light');
+    };
+    const syncStorage = (event: StorageEvent) => {
+      if (event.key !== 'portfolio-theme' && event.key !== null) return;
+      manualTheme.current = event.newValue === 'light' || event.newValue === 'dark';
+      setTheme(manualTheme.current ? event.newValue! : media.matches ? 'dark' : 'light');
+    };
+    window.addEventListener('storage', syncStorage);
+    media.addEventListener('change', syncSystem);
+    return () => {
+      window.removeEventListener('storage', syncStorage);
+      media.removeEventListener('change', syncSystem);
+    };
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#171918' : '#ffffff');
+  }, [theme]);
+
+  function toggleTheme() {
+    const next = theme === 'dark' ? 'light' : 'dark';
+    try { localStorage.setItem('portfolio-theme', next); } catch {}
+    manualTheme.current = true;
+    setTheme(next);
+  }
 
   return (
     <div className="site-shell">
@@ -101,6 +137,9 @@ function App() {
           <button type="button" onClick={() => scrollToSection('experience')}>Experience</button>
           <button type="button" onClick={() => scrollToSection('contact')}>Contact</button>
         </nav>
+        <button className="theme-toggle" type="button" aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`} title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`} onClick={toggleTheme}>
+          {theme === 'dark' ? <Sun size={15} strokeWidth={1.7} aria-hidden="true" /> : <Moon size={15} strokeWidth={1.7} aria-hidden="true" />}
+        </button>
       </header>
 
       <main id="main-content" tabIndex={-1}>
