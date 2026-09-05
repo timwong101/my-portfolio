@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="theme-color" content="#ffffff" />
+    <script>
+      (() => {
+        let preference;
+        try { preference = localStorage.getItem('portfolio-theme'); } catch {}
+        const dark = preference === 'dark' || (preference !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+        document.querySelector('meta[name="theme-color"]').content = dark ? '#171918' : '#ffffff';
+      })();
+    </script>
     <meta name="description" content="Portfolio of Tim Wong, a full stack software engineer building reliable products across frontend, backend, data, and infrastructure." />
     <meta property="og:title" content="Tim Wong | Full Stack Software Engineer" />
     <meta property="og:description" content="Full stack software engineer building reliable products across frontend, backend, data, and infrastructure." />
