@@ -192,12 +192,15 @@ footer { display: flex; justify-content: space-between; align-items: center; min
   --interactive: #eeefeb;
 }
 
-.theme-toggle { display: grid; place-items: center; flex: 0 0 44px; height: 44px; padding: 0; margin-left: 12px; border: 0; border-radius: 50%; background: transparent; color: var(--text); cursor: pointer; transition: background .18s ease; }
+.theme-toggle { display: grid; place-items: center; flex: 0 0 44px; height: 44px; padding: 0; margin-left: 0; border: 0; border-radius: 50%; background: transparent; color: var(--text); cursor: pointer; transition: background .18s ease; }
 .theme-toggle { position: relative; isolation: isolate; justify-items: end; }
 .theme-toggle::before { content: ''; position: absolute; top: 6px; right: -8.5px; width: 32px; height: 32px; z-index: -1; border-radius: 50%; background: transparent; transition: background .18s ease; }
 .theme-toggle:hover::before { background: var(--inset); }
 .theme-toggle:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
 .topbar nav { margin-left: auto; }
+@media (min-width: 421px) {
+  .topbar nav button:last-child { padding-right: 0; }
+}
 :root[data-theme='dark'] .tech-icon[data-tech='Next.js'],
 :root[data-theme='dark'] .tech-icon[data-tech='Angular'],
 :root[data-theme='dark'] .tech-icon[data-tech='Kafka'],
