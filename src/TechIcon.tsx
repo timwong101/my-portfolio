@@ -26,7 +26,6 @@ import {
   siPython,
   siReact,
   siRedis,
-  siSharp,
   siSplunk,
   siTailwindcss,
   siTypescript,
@@ -39,7 +38,6 @@ const brandIcons: Record<string, SimpleIcon> = {
   TypeScript: siTypescript,
   JavaScript: siJavascript,
   Python: siPython,
-  'C#': siSharp,
   React: siReact,
   Angular: siAngular,
   'Tailwind CSS': siTailwindcss,
@@ -61,6 +59,7 @@ const brandIcons: Record<string, SimpleIcon> = {
 };
 
 const genericIcons: Record<string, LucideIcon> = {
+  'C#': Braces,
   Java: Coffee,
   SQL: Database,
   'REST APIs': Braces,
