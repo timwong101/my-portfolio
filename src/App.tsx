@@ -137,14 +137,8 @@ function App() {
           <button type="button" onClick={() => scrollToSection('experience')}>Experience</button>
           <button type="button" onClick={() => scrollToSection('contact')}>Contact</button>
         </nav>
-        <button className="theme-toggle" type="button" role="switch" aria-checked={theme === 'dark'} aria-label="Dark mode" title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`} onClick={toggleTheme}>
-          <span className="theme-toggle-track" aria-hidden="true">
-            <Sun size={13} strokeWidth={1.7} />
-            <Moon size={13} strokeWidth={1.7} />
-            <span className="theme-toggle-thumb">
-              {theme === 'dark' ? <Moon size={13} strokeWidth={1.8} /> : <Sun size={13} strokeWidth={1.8} />}
-            </span>
-          </span>
+        <button className="theme-toggle" type="button" aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`} title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`} onClick={toggleTheme}>
+          {theme === 'dark' ? <Sun size={18} strokeWidth={1.7} aria-hidden="true" /> : <Moon size={18} strokeWidth={1.7} aria-hidden="true" />}
         </button>
       </header>
 

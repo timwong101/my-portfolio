@@ -192,13 +192,9 @@ footer { display: flex; justify-content: space-between; align-items: center; min
   --interactive: #eeefeb;
 }
 
-.theme-toggle { display: grid; place-items: center; flex: 0 0 56px; min-height: 44px; padding: 0; margin-left: 12px; border: 0; border-radius: 24px; background: transparent; cursor: pointer; }
-.theme-toggle-track { position: relative; display: flex; align-items: center; justify-content: space-between; width: 52px; height: 28px; padding: 0 7px; border: 1px solid var(--control-line); border-radius: 20px; background: var(--inset); color: var(--muted); transition: border-color .18s ease; }
-.theme-toggle-thumb { position: absolute; display: grid; place-items: center; left: 2px; top: 2px; width: 22px; height: 22px; border-radius: 50%; background: var(--interactive); color: var(--surface); transition: transform .22s cubic-bezier(.2, .8, .2, 1); }
-.theme-toggle[aria-checked='true'] .theme-toggle-thumb { transform: translateX(24px); }
-.theme-toggle:hover .theme-toggle-track { border-color: var(--text); }
-.theme-toggle:focus-visible { outline: none; }
-.theme-toggle:focus-visible .theme-toggle-track { outline: 2px solid var(--text); outline-offset: 4px; }
+.theme-toggle { display: grid; place-items: center; flex: 0 0 44px; height: 44px; padding: 0; margin-left: 12px; border: 0; border-radius: 50%; background: transparent; color: var(--text); cursor: pointer; transition: background .18s ease; }
+.theme-toggle:hover { background: var(--inset); }
+.theme-toggle:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
 .topbar nav { margin-left: auto; }
 :root[data-theme='dark'] .tech-icon[data-tech='Next.js'],
 :root[data-theme='dark'] .tech-icon[data-tech='Angular'],
