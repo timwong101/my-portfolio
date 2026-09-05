@@ -220,23 +220,3 @@ footer { display: flex; justify-content: space-between; align-items: center; min
   .topbar nav { order: 3; width: 100%; justify-content: space-between; margin-left: 0; }
   .theme-toggle { margin-left: auto; }
 }
-
-/* Reveal a single snapshot so text, images and borders change together. */
-html.theme-changing *,
-html.theme-changing *::before,
-html.theme-changing *::after { transition: none !important; }
-html.theme-changing::view-transition-group(root) { animation: none; }
-html.theme-changing::view-transition-old(root),
-html.theme-changing::view-transition-new(root) { mix-blend-mode: normal; animation: none; }
-html.theme-changing::view-transition-old(root) { z-index: 1; }
-html.theme-changing::view-transition-new(root) {
-  z-index: 2;
-  animation: theme-reveal 500ms linear both;
-}
-@keyframes theme-reveal {
-  from { clip-path: circle(var(--theme-reveal-start) at var(--theme-reveal-center)); }
-  to { clip-path: circle(var(--theme-reveal-end) at var(--theme-reveal-center)); }
-}
-@media (prefers-reduced-motion: reduce) {
-  html.theme-changing::view-transition-new(root) { animation: none; clip-path: none; }
-}

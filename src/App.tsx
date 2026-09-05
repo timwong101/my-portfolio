@@ -7,7 +7,6 @@ import {
   Sun,
 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
-import { flushSync } from 'react-dom';
 import { TechIcon } from './TechIcon';
 
 const projects = [
@@ -89,7 +88,6 @@ function App() {
   const [expandedProject, setExpandedProject] = useState<string | null>(null);
   const [theme, setTheme] = useState(() => document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
   const manualTheme = useRef(false);
-  const themeTransitionRunning = useRef(false);
 
   useEffect(() => {
     const media = window.matchMedia('(prefers-color-scheme: dark)');
@@ -116,53 +114,11 @@ function App() {
     document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#171918' : '#ffffff');
   }, [theme]);
 
-  async function toggleTheme(event: React.MouseEvent<HTMLButtonElement>) {
-    if (themeTransitionRunning.current) return;
+  function toggleTheme() {
     const next = theme === 'dark' ? 'light' : 'dark';
     try { localStorage.setItem('portfolio-theme', next); } catch {}
     manualTheme.current = true;
-    const update = () => {
-      flushSync(() => setTheme(next));
-      document.documentElement.dataset.theme = next;
-      document.documentElement.style.colorScheme = next;
-    };
-    // Firefox's snapshot mask did not render reliably in cross-browser checks.
-    // Keep theme switching immediate there until the reveal can be visually verified.
-    const unreliableSnapshotMask = CSS.supports('-moz-appearance', 'none');
-    if (!document.startViewTransition || unreliableSnapshotMask || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      update();
-      return;
-    }
-
-    // The icon, rather than its larger hit area, is the visual origin.
-    const bounds = (event.currentTarget.querySelector('svg') ?? event.currentTarget).getBoundingClientRect();
-    const x = bounds.left + bounds.width / 2;
-    const y = bounds.top + bounds.height / 2;
-    const root = document.documentElement;
-    const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
-    // Percentage geometry stays aligned on high-DPI Chrome snapshot layers.
-    // A circle's percentage radius is relative to the normalized viewport diagonal.
-    const diagonal = Math.hypot(innerWidth, innerHeight) / Math.SQRT2;
-    const center = `${x / innerWidth * 100}% ${y / innerHeight * 100}%`;
-    root.style.setProperty('--theme-reveal-center', center);
-    root.style.setProperty('--theme-reveal-start', `${bounds.width / 2 / diagonal * 100}%`);
-    root.style.setProperty('--theme-reveal-end', `${(Math.ceil(radius) + 2) / diagonal * 100}%`);
-    root.classList.add('theme-changing');
-    themeTransitionRunning.current = true;
-    try {
-      const transition = document.startViewTransition(update);
-      // CSS owns the snapshot animation lifetime in supporting browsers.
-      void transition.ready.catch(() => {});
-      await transition.finished;
-    } catch {
-      update();
-    } finally {
-      themeTransitionRunning.current = false;
-      root.classList.remove('theme-changing');
-      root.style.removeProperty('--theme-reveal-center');
-      root.style.removeProperty('--theme-reveal-start');
-      root.style.removeProperty('--theme-reveal-end');
-    }
+    setTheme(next);
   }
 
   return (
