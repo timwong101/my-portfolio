@@ -137,6 +137,10 @@ function App() {
     const y = bounds.top + bounds.height / 2;
     const root = document.documentElement;
     const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    // Percentage geometry stays aligned on high-DPI Chrome snapshot layers.
+    // A circle's percentage radius is relative to the normalized viewport diagonal.
+    const diagonal = Math.hypot(innerWidth, innerHeight) / Math.SQRT2;
+    const center = `${x / innerWidth * 100}% ${y / innerHeight * 100}%`;
     root.classList.add('theme-changing');
     themeTransitionRunning.current = true;
     let reveal: Animation | undefined;
@@ -148,8 +152,8 @@ function App() {
       reveal = root.animate(
         {
           clipPath: [
-            `circle(${bounds.width / 2}px at ${x}px ${y}px)`,
-            `circle(${Math.ceil(radius) + 2}px at ${x}px ${y}px)`,
+            `circle(${bounds.width / 2 / diagonal * 100}% at ${center})`,
+            `circle(${(Math.ceil(radius) + 2) / diagonal * 100}% at ${center})`,
           ],
         },
         { duration: 500, easing: 'linear', pseudoElement: '::view-transition-new(root)', fill: 'both' },
