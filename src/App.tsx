@@ -41,7 +41,7 @@ const techStack = [
   },
   {
     title: 'Frontend',
-    items: ['React', 'Angular', 'Tailwind CSS'],
+    items: ['React', 'Next.js', 'Angular', 'Tailwind CSS'],
   },
   {
     title: 'Backend',
