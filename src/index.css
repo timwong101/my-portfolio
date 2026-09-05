@@ -32,8 +32,6 @@ nav button:focus-visible, .wordmark:focus-visible { outline: 1px solid #252525; 
 .ruled-section { border-bottom: 1px solid #cac8bd; }
 
 .profile-hero { position: relative; display: grid; grid-template-columns: 108px 1fr; align-items: center; gap: 28px; padding: 34px var(--section-gutter); overflow: hidden; }
-.profile-hero::before { content: ''; position: absolute; inset: 0; background: url('/ink-wash-accent.png') center / cover no-repeat; opacity: .12; pointer-events: none; }
-.profile-hero > * { position: relative; z-index: 1; }
 .profile-headshot { width: 108px; height: 108px; overflow: hidden; border: 1px solid #aaa99e; border-radius: 7px; background: #ececec; }
 .profile-headshot img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; filter: contrast(1.04); }
 .profile-identity { display: flex; flex-direction: column; align-items: flex-start; }
