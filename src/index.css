@@ -117,7 +117,7 @@ h2 { margin: 0; font-family: var(--font-display); font-size: 28px; font-weight: 
 .experience-highlights li { padding-left: 2px; }
 .experience-highlights li + li { margin-top: 11px; }
 
-.stack-section { padding: 34px var(--section-gutter) 40px; }
+.stack-section { padding: 34px var(--section-gutter) 24px; }
 .stack-heading { margin-bottom: 16px; }
 .stack-grid { border-top: 1px solid var(--control-line); }
 .stack-grid article { display: grid; grid-template-columns: 112px 1fr; align-items: baseline; gap: 16px; min-height: 0; padding: 10px 0; }
@@ -167,7 +167,7 @@ footer { display: flex; justify-content: space-between; align-items: center; min
   .project-copy h3 { font-size: 24px; }
   .experience-content { padding: 24px var(--section-gutter) 36px; }
   .experience-heading { grid-template-columns: 42px 1fr; gap: 14px; padding-bottom: 28px; }
-  .stack-section { padding: 32px var(--section-gutter) 38px; }
+  .stack-section { padding: 32px var(--section-gutter) 24px; }
   .stack-grid article { grid-template-columns: 1fr; gap: 8px; padding: 13px 0; }
   .stack-grid h3 { font-size: 19px; }
   .contact-section { padding: 36px var(--section-gutter) 28px; }
