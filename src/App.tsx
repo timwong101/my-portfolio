@@ -126,7 +126,10 @@ function App() {
       document.documentElement.dataset.theme = next;
       document.documentElement.style.colorScheme = next;
     };
-    if (!document.startViewTransition || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    // Firefox's snapshot mask did not render reliably in cross-browser checks.
+    // Keep theme switching immediate there until the reveal can be visually verified.
+    const unreliableSnapshotMask = CSS.supports('-moz-appearance', 'none');
+    if (!document.startViewTransition || unreliableSnapshotMask || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       update();
       return;
     }
@@ -141,31 +144,24 @@ function App() {
     // A circle's percentage radius is relative to the normalized viewport diagonal.
     const diagonal = Math.hypot(innerWidth, innerHeight) / Math.SQRT2;
     const center = `${x / innerWidth * 100}% ${y / innerHeight * 100}%`;
+    root.style.setProperty('--theme-reveal-center', center);
+    root.style.setProperty('--theme-reveal-start', `${bounds.width / 2 / diagonal * 100}%`);
+    root.style.setProperty('--theme-reveal-end', `${(Math.ceil(radius) + 2) / diagonal * 100}%`);
     root.classList.add('theme-changing');
     themeTransitionRunning.current = true;
-    let reveal: Animation | undefined;
     try {
       const transition = document.startViewTransition(update);
-      // Start the clock only after both snapshots are ready, at the icon's size.
-      // Explicit viewport coordinates avoid inherited snapshot styles shifting the origin.
-      await transition.ready;
-      reveal = root.animate(
-        {
-          clipPath: [
-            `circle(${bounds.width / 2 / diagonal * 100}% at ${center})`,
-            `circle(${(Math.ceil(radius) + 2) / diagonal * 100}% at ${center})`,
-          ],
-        },
-        { duration: 500, easing: 'linear', pseudoElement: '::view-transition-new(root)', fill: 'both' },
-      );
-      await reveal.finished;
+      // CSS owns the snapshot animation lifetime in supporting browsers.
+      void transition.ready.catch(() => {});
       await transition.finished;
     } catch {
       update();
     } finally {
-      reveal?.cancel();
       themeTransitionRunning.current = false;
       root.classList.remove('theme-changing');
+      root.style.removeProperty('--theme-reveal-center');
+      root.style.removeProperty('--theme-reveal-start');
+      root.style.removeProperty('--theme-reveal-end');
     }
   }
 
