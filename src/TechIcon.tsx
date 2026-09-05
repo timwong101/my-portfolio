@@ -1,11 +1,8 @@
 import {
   Braces,
-  Cloud,
-  Coffee,
   Database,
   Frame,
   TerminalSquare,
-  TestTubeDiagonal,
   Workflow,
   type LucideIcon,
 } from 'lucide-react';
@@ -58,18 +55,21 @@ const brandIcons: Record<string, SimpleIcon> = {
   Splunk: siSplunk,
 };
 
+const localIcons: Record<string, string> = {
+  'C#': 'csharp',
+  Java: 'java',
+  AWS: 'amazonwebservices',
+  'Microsoft SQL Server': 'microsoftsqlserver',
+  Playwright: 'playwright',
+};
+
 const genericIcons: Record<string, LucideIcon> = {
-  'C#': Braces,
-  Java: Coffee,
   SQL: Database,
   'REST APIs': Braces,
-  'Microsoft SQL Server': Database,
   'Oracle Database': Database,
-  AWS: Cloud,
   Codex: TerminalSquare,
   BullMQ: Workflow,
   Canvas: Frame,
-  Playwright: TestTubeDiagonal,
 };
 
 type TechIconProps = {
@@ -77,6 +77,12 @@ type TechIconProps = {
 };
 
 export function TechIcon({ name }: TechIconProps) {
+  const localIcon = localIcons[name];
+
+  if (localIcon) {
+    return <img className="tech-icon" src={`/icons/${localIcon}.svg`} alt="" aria-hidden="true" width="13" height="13" />;
+  }
+
   const brandIcon = brandIcons[name];
 
   if (brandIcon) {
