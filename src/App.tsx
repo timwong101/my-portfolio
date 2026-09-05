@@ -137,24 +137,31 @@ function App() {
     const y = bounds.top + bounds.height / 2;
     const root = document.documentElement;
     const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
-    root.style.setProperty('--theme-reveal-x', `${x}px`);
-    root.style.setProperty('--theme-reveal-y', `${y}px`);
-    root.style.setProperty('--theme-reveal-radius', `${Math.ceil(radius) + 2}px`);
     root.classList.add('theme-changing');
     themeTransitionRunning.current = true;
+    let reveal: Animation | undefined;
     try {
       const transition = document.startViewTransition(update);
-      // A hidden tab or interrupted snapshot can skip animation without failing the switch.
-      void transition.ready.catch(() => {});
+      // Start the clock only after both snapshots are ready, at the icon's size.
+      // Explicit viewport coordinates avoid inherited snapshot styles shifting the origin.
+      await transition.ready;
+      reveal = root.animate(
+        {
+          clipPath: [
+            `circle(${bounds.width / 2}px at ${x}px ${y}px)`,
+            `circle(${Math.ceil(radius) + 2}px at ${x}px ${y}px)`,
+          ],
+        },
+        { duration: 500, easing: 'linear', pseudoElement: '::view-transition-new(root)', fill: 'both' },
+      );
+      await reveal.finished;
       await transition.finished;
     } catch {
       update();
     } finally {
+      reveal?.cancel();
       themeTransitionRunning.current = false;
       root.classList.remove('theme-changing');
-      root.style.removeProperty('--theme-reveal-x');
-      root.style.removeProperty('--theme-reveal-y');
-      root.style.removeProperty('--theme-reveal-radius');
     }
   }
 

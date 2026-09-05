@@ -231,12 +231,8 @@ html.theme-changing::view-transition-new(root) { mix-blend-mode: normal; animati
 html.theme-changing::view-transition-old(root) { z-index: 1; }
 html.theme-changing::view-transition-new(root) {
   z-index: 2;
-  animation: theme-reveal 420ms cubic-bezier(.2, .65, .3, 1) both;
-}
-@keyframes theme-reveal {
-  from { clip-path: circle(0px at var(--theme-reveal-x) var(--theme-reveal-y)); }
-  to { clip-path: circle(var(--theme-reveal-radius) at var(--theme-reveal-x) var(--theme-reveal-y)); }
+  clip-path: circle(0px);
 }
 @media (prefers-reduced-motion: reduce) {
-  html.theme-changing::view-transition-new(root) { animation: none; }
+  html.theme-changing::view-transition-new(root) { clip-path: none; }
 }
