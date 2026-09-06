@@ -34,7 +34,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--interactive); o
 .skip-link { position: fixed; top: 8px; left: 16px; z-index: 30; padding: 12px 16px; background: var(--surface); border: 1px solid var(--interactive); transform: translateY(-150%); }
 .skip-link:focus { transform: translateY(0); }
 
-.site-shell { --section-gutter: 24px; width: min(750px, calc(100% - 40px)); margin: 0 auto; }
+.site-shell { --section-gutter: 24px; width: calc(100% - 40px); max-width: 700px; margin: 0 auto; }
 .topbar { position: sticky; top: 0; z-index: 20; height: 62px; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; border-bottom: 1px solid var(--line); background: var(--surface); font-family: var(--font-ui); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; }
 .wordmark { display: flex; align-items: center; gap: 12px; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; font-weight: 700; text-transform: inherit; letter-spacing: inherit; cursor: pointer; }
 nav { display: flex; gap: 6px; }
@@ -82,9 +82,9 @@ h2 { margin: 0; font-family: var(--font-display); font-size: 28px; font-weight: 
 .project-grid { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 36px; align-items: start; }
 .project-grid::before { content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: var(--line); transform: translateX(-.5px); }
 .project-card { position: relative; z-index: 1; display: flex; min-width: 0; flex-direction: column; background: var(--surface); }
-.project-visual { position: relative; aspect-ratio: 16 / 10; margin: 10px 10px 0; overflow: hidden; border: 1px solid var(--line); background: #0a1119; }
+.project-visual { position: relative; aspect-ratio: 16 / 10; margin: 10px 0 0; overflow: hidden; border: 1px solid var(--line); background: #0a1119; }
 .project-visual img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; object-position: top left; }
-.project-copy { display: flex; flex: 1; flex-direction: column; padding: 20px; }
+.project-copy { display: flex; flex: 1; flex-direction: column; padding: 20px 0; }
 .project-copy h3 { margin: 0 0 11px; font-family: var(--font-display); font-size: 25px; font-weight: 400; line-height: 1.1; letter-spacing: -.02em; }
 .project-description { flex: 1; max-width: 670px; margin: 0; color: var(--body-text); font-size: 13px; line-height: 1.6; }
 .project-tags { display: flex; flex-wrap: wrap; gap: 8px 14px; list-style: none; padding: 16px 0 0; margin: 20px 0 0; border-top: 1px solid var(--line); }
@@ -117,10 +117,10 @@ h2 { margin: 0; font-family: var(--font-display); font-size: 28px; font-weight: 
 .experience-highlights li { padding-left: 2px; }
 .experience-highlights li + li { margin-top: 11px; }
 
-.stack-section { padding: 34px var(--section-gutter) 40px; }
+.stack-section { padding: 34px var(--section-gutter) 24px; }
 .stack-heading { margin-bottom: 16px; }
 .stack-grid { border-top: 1px solid var(--control-line); }
-.stack-grid article { display: grid; grid-template-columns: 112px 1fr; align-items: center; gap: 16px; min-height: 0; padding: 10px 0; }
+.stack-grid article { display: grid; grid-template-columns: 112px 1fr; align-items: baseline; gap: 16px; min-height: 0; padding: 10px 0; }
 .stack-grid h3 { margin: 0; font-family: var(--font-display); font-size: 18px; font-weight: 400; letter-spacing: -.02em; }
 .stack-grid ul { display: flex; flex-wrap: wrap; align-content: flex-start; gap: 8px 16px; list-style: none; margin: 0; padding: 0; }
 .stack-grid li { display: inline-flex; align-items: center; gap: 6px; color: var(--body-text); font: 13px/1.5 var(--font-body); white-space: nowrap; }
@@ -163,11 +163,10 @@ footer { display: flex; justify-content: space-between; align-items: center; min
   .project-grid::before { display: none; }
   .project-card + .project-card { padding-top: 28px; border-top: 1px solid var(--line); }
   .project-visual { aspect-ratio: 16 / 10; }
-  .project-copy { padding: 20px; }
   .project-copy h3 { font-size: 24px; }
   .experience-content { padding: 24px var(--section-gutter) 36px; }
   .experience-heading { grid-template-columns: 42px 1fr; gap: 14px; padding-bottom: 28px; }
-  .stack-section { padding: 32px var(--section-gutter) 38px; }
+  .stack-section { padding: 32px var(--section-gutter) 24px; }
   .stack-grid article { grid-template-columns: 1fr; gap: 8px; padding: 13px 0; }
   .stack-grid h3 { font-size: 19px; }
   .contact-section { padding: 36px var(--section-gutter) 28px; }
