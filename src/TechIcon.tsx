@@ -58,7 +58,6 @@ const brandIcons: Record<string, SimpleIcon> = {
 const localIcons: Record<string, string> = {
   'C#': 'csharp',
   Java: 'java',
-  AWS: 'amazonwebservices',
   'Microsoft SQL Server': 'microsoftsqlserver',
   Playwright: 'playwright',
 };

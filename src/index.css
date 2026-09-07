@@ -206,7 +206,6 @@ footer { display: flex; justify-content: space-between; align-items: center; min
 :root[data-theme='dark'] .tech-icon[data-tech='Vercel'],
 :root[data-theme='dark'] .tech-icon[data-tech='GitHub'],
 :root[data-theme='dark'] .tech-icon[data-tech='GitHub Copilot'] { color: var(--text) !important; }
-:root[data-theme='dark'] img[src='/icons/amazonwebservices.svg'] { filter: brightness(0) invert(1); }
 :root[data-theme='dark'] .tech-icon[data-tech='PostgreSQL'],
 :root[data-theme='dark'] .tech-icon[data-tech='.NET'],
 :root[data-theme='dark'] img[src='/icons/csharp.svg'],
