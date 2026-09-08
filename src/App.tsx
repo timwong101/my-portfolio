@@ -67,7 +67,7 @@ const techStack = [
 const experienceHighlights = [
   'I built SwarmPilot to coordinate parallel GitHub Copilot agents across 24 repositories and automate CI/CD and Git workflows, reducing manual engineering effort by 90%.',
   'I modernized login flows by moving credential management to a centralized authentication platform and adding MFA. A Kafka consumer I built for authentication and credential events cut production issue diagnosis time by more than 75%.',
-  'I migrated an application’s entire frontend from ASP.NET MVC to Angular, built reusable UI components, and developed .NET Web APIs.',
+  'I migrated an application’s entire frontend from ASP.NET MVC to Angular, built reusable UI components, and developed REST APIs.',
 ];
 
 function scrollToSection(sectionId?: string) {
