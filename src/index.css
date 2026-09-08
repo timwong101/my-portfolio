@@ -140,7 +140,6 @@ footer { display: flex; justify-content: space-between; align-items: center; min
 .socials { display: flex; flex-wrap: wrap; gap: 8px; }
 .socials a { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--control-line); transition: background .2s, color .2s; }
 .socials a:hover { background: var(--interactive); color: var(--surface); }
-.socials .footer-resume { display: inline-flex; gap: 7px; width: auto; padding: 0 10px; }
 
 @media (max-width: 760px) {
   html { scroll-padding-top: 58px; }
