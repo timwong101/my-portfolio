@@ -65,11 +65,11 @@ const techStack = [
 ];
 
 const experienceHighlights = [
-  'Modernized authentication by centralizing credential management and adding MFA and OAuth flows.',
-  'Built a Kafka event processor that cut the time needed to diagnose production issues by more than 75%.',
-  'Built an internal AI agent that reduced manual GitHub repository work by 90%.',
-  'Updated retirement applications with Angular interfaces and .NET Web APIs.',
-  'Supported production systems and expanded automated test coverage with Java and Gherkin.',
+  'Built SwarmPilot, a .NET/Avalonia app that coordinates GitHub Copilot agents across 24 repositories and automates CI/CD and Git workflows, reducing manual engineering effort by 90%.',
+  'Moved credential management from legacy databases to a central authentication platform, redesigned login flows, and added MFA.',
+  'Built a Kafka consumer for authentication and credential events that cut production issue diagnosis time by more than 75%.',
+  'Migrated an entire application frontend from ASP.NET MVC to Angular, with reusable components and REST API integrations.',
+  'Replaced legacy integrations with REST and orchestration APIs to support onboarding for external partners.',
 ];
 
 function scrollToSection(sectionId?: string) {
