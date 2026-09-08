@@ -66,8 +66,8 @@ const techStack = [
 
 const experienceHighlights = [
   'I built SwarmPilot to coordinate parallel GitHub Copilot agents across 24 repositories and automate CI/CD and Git workflows, reducing manual engineering effort by 90%.',
-  'I centralized credential management and added MFA. A Kafka consumer I built for authentication and credential events cut production issue diagnosis time by more than 75%.',
-  'I migrated the application’s entire frontend from ASP.NET MVC to Angular, with reusable components connected to backend REST APIs.',
+  'I modernized login flows by moving credential management to a centralized authentication platform and adding MFA. A Kafka consumer I built for authentication and credential events cut production issue diagnosis time by more than 75%.',
+  'I migrated an application’s entire frontend from ASP.NET MVC to Angular, built reusable UI components, and developed .NET Web APIs.',
 ];
 
 function scrollToSection(sectionId?: string) {
@@ -283,7 +283,6 @@ function App() {
               </div>
             </div>
             <div className="experience-work">
-              <p className="experience-intro">My work at Schwab spans client applications, authentication, and tools for the engineering team.</p>
               <ul className="experience-highlights">
                 {experienceHighlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
               </ul>

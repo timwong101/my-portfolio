@@ -115,7 +115,6 @@ h2 { margin: 0; font-family: var(--font-display); font-size: 28px; font-weight: 
 .experience-company { margin: 0 0 3px; color: var(--text); font-family: var(--font-display); font-size: 23px; font-weight: 400; line-height: 1; letter-spacing: -.025em; }
 .meta { margin: 0; color: var(--muted); font: 12px/1.3 var(--font-body); }
 .experience-work { padding-top: 22px; border-top: 1px solid var(--line); color: var(--body-text); font-size: 13px; line-height: 1.55; }
-.experience-intro { margin: 0 0 16px; }
 .experience-highlights { list-style: disc; margin: 0; padding-left: 18px; }
 .experience-highlights li { padding-left: 2px; }
 .experience-highlights li + li { margin-top: 11px; }
