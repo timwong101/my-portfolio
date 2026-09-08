@@ -65,11 +65,9 @@ const techStack = [
 ];
 
 const experienceHighlights = [
-  'SwarmPilot, a .NET/Avalonia app I built, lets the team run GitHub Copilot agents in parallel across 24 repositories and automate CI/CD and Git workflows. It reduced manual engineering effort by 90%.',
-  'I modernized a client application’s authentication by moving credential management from legacy databases to a centralized platform, redesigning login flows, and adding MFA.',
-  'A Kafka consumer I built processes authentication and credential events, improving observability and cutting production issue diagnosis time by more than 75%.',
+  'I built SwarmPilot to coordinate parallel GitHub Copilot agents across 24 repositories and automate CI/CD and Git workflows, reducing manual engineering effort by 90%.',
+  'I centralized credential management and added MFA. A Kafka consumer I built for authentication and credential events cut production issue diagnosis time by more than 75%.',
   'I migrated the application’s entire frontend from ASP.NET MVC to Angular, with reusable components connected to backend REST APIs.',
-  'For partner onboarding, I replaced legacy integrations with new REST and orchestration APIs.',
 ];
 
 function scrollToSection(sectionId?: string) {
