@@ -65,11 +65,9 @@ const techStack = [
 ];
 
 const experienceHighlights = [
-  'Built SwarmPilot, a .NET/Avalonia app that coordinates GitHub Copilot agents across 24 repositories and automates CI/CD and Git workflows, reducing manual engineering effort by 90%.',
-  'Moved credential management from legacy databases to a central authentication platform, redesigned login flows, and added MFA.',
-  'Built a Kafka consumer for authentication and credential events that cut production issue diagnosis time by more than 75%.',
-  'Migrated an entire application frontend from ASP.NET MVC to Angular, with reusable components and REST API integrations.',
-  'Replaced legacy integrations with REST and orchestration APIs to support onboarding for external partners.',
+  'I created SwarmPilot to coordinate GitHub Copilot agents across 24 repositories. Automating CI/CD and Git workflows reduced manual engineering effort by 90%.',
+  'My authentication work includes redesigning login flows and adding MFA. A Kafka consumer I built for authentication events also cut production issue diagnosis time by more than 75%.',
+  'I’ve also moved a legacy application frontend to Angular and developed APIs that help external partners integrate with our systems.',
 ];
 
 function scrollToSection(sectionId?: string) {
@@ -284,9 +282,12 @@ function App() {
                 <p className="meta">Software Engineer · 2021 to Present</p>
               </div>
             </div>
-            <ul className="experience-highlights">
-              {experienceHighlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
-            </ul>
+            <div className="experience-work">
+              <p className="experience-intro">At Schwab, I work on client applications and tools that help engineering teams build and support them.</p>
+              <ul className="experience-highlights">
+                {experienceHighlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
+              </ul>
+            </div>
           </div>
         </section>
 
