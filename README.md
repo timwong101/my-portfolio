@@ -38,3 +38,5 @@ pnpm preview
 ## Updating the content
 
 The main page content and project data live in `src/App.tsx`. The visual system and responsive styles live in `src/index.css`.
+
+To update the resume, replace `public/Timothy_Wong_Resume.pdf` using the same filename. Both Resume buttons open this file in a new tab; browsers configured to download PDFs may download it instead.

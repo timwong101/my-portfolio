@@ -1,5 +1,6 @@
 import {
   ArrowUpRight,
+  FileText,
   Github,
   Linkedin,
   Mail,
@@ -166,10 +167,16 @@ function App() {
                 <span>Software Developer</span>
               </div>
             </div>
-            <a className="profile-email" href="mailto:timwong101@gmail.com">
-              <Mail size={12} strokeWidth={1.7} aria-hidden="true" />
-              Send an Email
-            </a>
+            <div className="profile-actions">
+              <a className="profile-email" href="mailto:timwong101@gmail.com">
+                <Mail size={12} strokeWidth={1.7} aria-hidden="true" />
+                Send an Email
+              </a>
+              <a className="profile-email" href="/Timothy_Wong_Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume (PDF, opens in a new tab)">
+                <FileText size={12} strokeWidth={1.7} aria-hidden="true" />
+                Resume
+              </a>
+            </div>
           </div>
         </section>
 
@@ -320,6 +327,7 @@ function App() {
       <footer>
         <p>© 2026 Tim Wong</p>
         <div className="socials">
+          <a className="footer-resume" href="/Timothy_Wong_Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume (PDF, opens in a new tab)"><FileText size={16} aria-hidden="true" />Resume</a>
           <a href="mailto:timwong101@gmail.com" aria-label="Email Timothy Wong"><Mail size={18} /></a>
           <a href="https://github.com/timwong101" target="_blank" rel="noreferrer" aria-label="Timothy Wong on GitHub"><Github size={18} /></a>
           <a href="https://www.linkedin.com/in/timothywong101/" target="_blank" rel="noreferrer" aria-label="Timothy Wong on LinkedIn"><Linkedin size={18} /></a>
