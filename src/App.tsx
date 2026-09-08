@@ -327,10 +327,10 @@ function App() {
       <footer>
         <p>© 2026 Tim Wong</p>
         <div className="socials">
-          <a href="/Timothy_Wong_Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume (PDF, opens in a new tab)" title="Resume"><FileText size={18} aria-hidden="true" /></a>
-          <a href="mailto:timwong101@gmail.com" aria-label="Email Timothy Wong" title="Email"><Mail size={18} aria-hidden="true" /></a>
-          <a href="https://github.com/timwong101" target="_blank" rel="noreferrer" aria-label="Timothy Wong on GitHub" title="GitHub"><Github size={18} aria-hidden="true" /></a>
-          <a href="https://www.linkedin.com/in/timothywong101/" target="_blank" rel="noreferrer" aria-label="Timothy Wong on LinkedIn" title="LinkedIn"><Linkedin size={18} aria-hidden="true" /></a>
+          <a href="/Timothy_Wong_Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume (PDF, opens in a new tab)"><FileText size={18} aria-hidden="true" /><span className="footer-tooltip" aria-hidden="true">Resume</span></a>
+          <a href="mailto:timwong101@gmail.com" aria-label="Email Timothy Wong"><Mail size={18} aria-hidden="true" /><span className="footer-tooltip" aria-hidden="true">Email</span></a>
+          <a href="https://github.com/timwong101" target="_blank" rel="noreferrer" aria-label="Timothy Wong on GitHub"><Github size={18} aria-hidden="true" /><span className="footer-tooltip" aria-hidden="true">GitHub</span></a>
+          <a href="https://www.linkedin.com/in/timothywong101/" target="_blank" rel="noreferrer" aria-label="Timothy Wong on LinkedIn"><Linkedin size={18} aria-hidden="true" /><span className="footer-tooltip" aria-hidden="true">LinkedIn</span></a>
         </div>
       </footer>
     </div>
