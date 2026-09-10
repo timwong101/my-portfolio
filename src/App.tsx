@@ -184,8 +184,7 @@ function App() {
           </div>
           <div className="about-copy">
             <p className="about-intro">
-              I’m Tim, a full stack software engineer at Charles Schwab, where I build web
-              applications and tools for engineering teams.
+              I’m Tim, a full stack software engineer.
             </p>
             <div>
               <p>
