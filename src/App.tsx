@@ -1,5 +1,6 @@
 import {
   ArrowUpRight,
+  FileText,
   Github,
   Linkedin,
   Mail,
@@ -13,7 +14,7 @@ const projects = [
   {
     title: 'AI Infrastructure Research',
     description:
-      'Research SEC filings and investor materials with answers linked to their sources.',
+      'A research workspace for investors comparing AI infrastructure companies, with answers linked to SEC filings and company disclosures.',
     tags: ['TypeScript', 'Next.js', 'PostgreSQL', 'Redis', 'BullMQ'],
     url: 'https://github.com/timwong101/ai-infra-terminal',
     liveUrl: null,
@@ -55,7 +56,7 @@ const techStack = [
   },
   {
     title: 'Infrastructure',
-    items: ['AWS', 'Vercel', 'Docker', 'Kafka'],
+    items: ['Vercel', 'Docker', 'Kafka'],
   },
   {
     title: 'Tools',
@@ -64,11 +65,9 @@ const techStack = [
 ];
 
 const experienceHighlights = [
-  'Modernized authentication by centralizing credential management and adding MFA and OAuth flows.',
-  'Built a Kafka event processor that cut the time needed to diagnose production issues by more than 75%.',
-  'Built an internal AI agent that reduced manual GitHub repository work by 90%.',
-  'Updated retirement applications with Angular interfaces and .NET Web APIs.',
-  'Supported production systems and expanded automated test coverage with Java and Gherkin.',
+  'I built TinyBots to coordinate parallel GitHub Copilot agents across 24 repositories and automate CI/CD and Git workflows, reducing manual engineering effort by 90%.',
+  'Modernized authentication by moving credential management to a centralized platform and adding MFA. Built a Kafka consumer for authentication and credential events, cutting production issue diagnosis time by more than 75%.',
+  'Migrated an application’s entire frontend from ASP.NET MVC to Angular, built reusable UI components, and developed REST APIs.',
 ];
 
 function scrollToSection(sectionId?: string) {
@@ -166,10 +165,16 @@ function App() {
                 <span>Software Developer</span>
               </div>
             </div>
-            <a className="profile-email" href="mailto:timwong101@gmail.com">
-              <Mail size={12} strokeWidth={1.7} aria-hidden="true" />
-              Send an Email
-            </a>
+            <div className="profile-actions">
+              <a className="profile-email" href="mailto:timwong101@gmail.com">
+                <Mail size={12} strokeWidth={1.7} aria-hidden="true" />
+                Send an Email
+              </a>
+              <a className="profile-email" href="/Timothy_Wong_Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume (PDF, opens in a new tab)">
+                <FileText size={12} strokeWidth={1.7} aria-hidden="true" />
+                Resume
+              </a>
+            </div>
           </div>
         </section>
 
@@ -187,8 +192,8 @@ function App() {
                 useful, reliable products.
               </p>
               <p>
-                I’m especially interested in AI, emerging technology, and their potential to shape
-                what comes next.
+                At Charles Schwab, I build web applications and tools for engineering teams.
+                In my free time, I enjoy exploring AI, data, and interface design.
               </p>
             </div>
           </div>
@@ -277,9 +282,11 @@ function App() {
                 <p className="meta">Software Engineer · 2021 to Present</p>
               </div>
             </div>
-            <ul className="experience-highlights">
-              {experienceHighlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
-            </ul>
+            <div className="experience-work">
+              <ul className="experience-highlights">
+                {experienceHighlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
+              </ul>
+            </div>
           </div>
         </section>
 
@@ -320,9 +327,10 @@ function App() {
       <footer>
         <p>© 2026 Tim Wong</p>
         <div className="socials">
-          <a href="mailto:timwong101@gmail.com" aria-label="Email Timothy Wong"><Mail size={18} /></a>
-          <a href="https://github.com/timwong101" target="_blank" rel="noreferrer" aria-label="Timothy Wong on GitHub"><Github size={18} /></a>
-          <a href="https://www.linkedin.com/in/timothywong101/" target="_blank" rel="noreferrer" aria-label="Timothy Wong on LinkedIn"><Linkedin size={18} /></a>
+          <a href="/Timothy_Wong_Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume (PDF, opens in a new tab)"><FileText size={18} aria-hidden="true" /><span className="footer-tooltip" aria-hidden="true">Resume</span></a>
+          <a href="mailto:timwong101@gmail.com" aria-label="Email Timothy Wong"><Mail size={18} aria-hidden="true" /><span className="footer-tooltip" aria-hidden="true">Email</span></a>
+          <a href="https://github.com/timwong101" target="_blank" rel="noreferrer" aria-label="Timothy Wong on GitHub"><Github size={18} aria-hidden="true" /><span className="footer-tooltip" aria-hidden="true">GitHub</span></a>
+          <a href="https://www.linkedin.com/in/timothywong101/" target="_blank" rel="noreferrer" aria-label="Timothy Wong on LinkedIn"><Linkedin size={18} aria-hidden="true" /><span className="footer-tooltip" aria-hidden="true">LinkedIn</span></a>
         </div>
       </footer>
     </div>
