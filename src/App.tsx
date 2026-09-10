@@ -193,7 +193,7 @@ function App() {
               </p>
               <p>
                 At Charles Schwab, I build web applications and tools for engineering teams.
-                Outside of work, I enjoy exploring AI, data, and interface design.
+                In my free time, I enjoy exploring AI, data, and interface design.
               </p>
             </div>
           </div>
