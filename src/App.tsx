@@ -192,6 +192,7 @@ function App() {
                 useful, reliable products.
               </p>
               <p>
+                At Charles Schwab, I build web applications and tools for engineering teams.
                 Outside of work, I build projects that explore AI, data, and interface design.
               </p>
             </div>
