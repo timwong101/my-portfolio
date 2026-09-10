@@ -143,8 +143,6 @@ footer { display: flex; justify-content: space-between; align-items: center; min
 .socials a { position: relative; display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--control-line); transition: background .2s, color .2s; }
 .socials a:hover { background: var(--interactive); color: var(--surface); }
 .footer-tooltip { position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); z-index: 30; padding: 5px 8px; border-radius: 4px; background: var(--text); color: var(--surface); font: 12px/1.4 var(--font-body); white-space: nowrap; pointer-events: none; visibility: hidden; opacity: 0; }
-.socials a:first-child .footer-tooltip { left: 0; transform: none; }
-.socials a:last-child .footer-tooltip { left: auto; right: 0; transform: none; }
 @media (hover: hover) {
   .socials a:hover .footer-tooltip { visibility: visible; opacity: 1; transition: opacity .1s ease .15s, visibility 0s .15s; }
 }
