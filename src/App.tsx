@@ -14,7 +14,7 @@ const projects = [
   {
     title: 'AI Infrastructure Research',
     description:
-      'Research SEC filings and investor materials with answers linked to their sources.',
+      'A research workspace for investors comparing AI infrastructure companies, with answers linked to SEC filings and company disclosures.',
     tags: ['TypeScript', 'Next.js', 'PostgreSQL', 'Redis', 'BullMQ'],
     url: 'https://github.com/timwong101/ai-infra-terminal',
     liveUrl: null,
@@ -184,7 +184,8 @@ function App() {
           </div>
           <div className="about-copy">
             <p className="about-intro">
-              I’m Tim, a full stack software engineer.
+              I’m Tim, a full stack software engineer at Charles Schwab, where I build web
+              applications and tools for engineering teams.
             </p>
             <div>
               <p>
@@ -192,8 +193,7 @@ function App() {
                 useful, reliable products.
               </p>
               <p>
-                I’m especially interested in AI, emerging technology, and their potential to shape
-                what comes next.
+                Outside of work, I build projects that explore AI, data, and interface design.
               </p>
             </div>
           </div>
