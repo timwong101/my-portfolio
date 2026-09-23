@@ -5,6 +5,7 @@ import {
   Linkedin,
   Mail,
   Moon,
+  RotateCw,
   Sun,
 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
@@ -84,6 +85,7 @@ function scrollToSection(sectionId?: string) {
 }
 
 function App() {
+  const [showPhoto, setShowPhoto] = useState(false);
   const [expandedProject, setExpandedProject] = useState<string | null>(null);
   const [theme, setTheme] = useState(() => document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
   const manualTheme = useRef(false);
@@ -143,15 +145,24 @@ function App() {
 
       <main id="main-content" tabIndex={-1}>
         <section className="profile-hero ruled-section" aria-labelledby="profile-name">
-          <div className="profile-headshot">
-            <img
-              src="/tim-headshot.webp"
-              alt="Abstract portrait of Tim Wong"
-              width="324"
-              height="324"
-              fetchPriority="high"
-            />
-          </div>
+          <button
+            className="profile-headshot"
+            type="button"
+            data-flipped={showPhoto}
+            aria-label={showPhoto ? 'Show chibi portrait of Tim Wong' : 'Show photo of Tim Wong'}
+            title="Click to flip portrait"
+            onClick={() => setShowPhoto((current) => !current)}
+          >
+            <span className="profile-headshot-flipper" aria-hidden="true">
+              <span className="profile-headshot-face profile-headshot-front">
+                <img src="/tim-chibi.webp" alt="" width="324" height="324" fetchPriority="high" draggable={false} />
+              </span>
+              <span className="profile-headshot-face profile-headshot-back">
+                <img className="profile-headshot-photo" src="/tim-photo.webp" alt="" width="864" height="1296" draggable={false} />
+              </span>
+            </span>
+            <span className="profile-headshot-hint" aria-hidden="true"><RotateCw size={11} strokeWidth={1.8} /></span>
+          </button>
           <div className="profile-identity">
             <h1 id="profile-name">Tim Wong</h1>
             <div
