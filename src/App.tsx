@@ -5,7 +5,6 @@ import {
   Linkedin,
   Mail,
   Moon,
-  RotateCw,
   Sun,
 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
@@ -161,7 +160,6 @@ function App() {
                 <img className="profile-headshot-photo" src="/tim-photo.webp" alt="" width="864" height="1296" draggable={false} />
               </span>
             </span>
-            <span className="profile-headshot-hint" aria-hidden="true"><RotateCw size={11} strokeWidth={1.8} /></span>
           </button>
           <div className="profile-identity">
             <h1 id="profile-name">Tim Wong</h1>
