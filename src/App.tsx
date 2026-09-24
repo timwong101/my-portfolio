@@ -4,8 +4,10 @@ import {
   Github,
   Linkedin,
   Mail,
+  Menu,
   Moon,
   Sun,
+  X,
 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { TechIcon } from './TechIcon';
@@ -70,6 +72,13 @@ const experienceHighlights = [
   'Migrated an application’s entire frontend from ASP.NET MVC to Angular, built reusable UI components, and developed REST APIs.',
 ];
 
+const navigationSections = [
+  { id: 'about', label: 'About' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'contact', label: 'Contact' },
+];
+
 function scrollToSection(sectionId?: string) {
   const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth';
   const target = document.getElementById(sectionId ?? 'main-content');
@@ -84,10 +93,59 @@ function scrollToSection(sectionId?: string) {
 }
 
 function App() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const mobileNavigationRef = useRef<HTMLDivElement>(null);
+  const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
+  const homeButtonRef = useRef<HTMLButtonElement>(null);
   const [showPhoto, setShowPhoto] = useState(false);
   const [expandedProject, setExpandedProject] = useState<string | null>(null);
   const [theme, setTheme] = useState(() => document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
   const manualTheme = useRef(false);
+
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 420px)');
+    const closeOnWiderScreen = () => {
+      if (media.matches) return;
+      if (mobileNavigationRef.current?.contains(document.activeElement)) {
+        homeButtonRef.current?.focus({ preventScroll: true });
+      }
+      setMobileMenuOpen(false);
+    };
+    media.addEventListener('change', closeOnWiderScreen);
+    return () => media.removeEventListener('change', closeOnWiderScreen);
+  }, []);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const closeOutside = (event: Event) => {
+      if (event.target instanceof Node && !mobileNavigationRef.current?.contains(event.target)) {
+        if (mobileNavigationRef.current?.contains(document.activeElement)) {
+          mobileMenuButtonRef.current?.focus({ preventScroll: true });
+        }
+        setMobileMenuOpen(false);
+      }
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setMobileMenuOpen(false);
+        mobileMenuButtonRef.current?.focus({ preventScroll: true });
+      }
+    };
+    document.addEventListener('pointerdown', closeOutside);
+    document.addEventListener('focusin', closeOutside);
+    document.addEventListener('keydown', closeOnEscape);
+    return () => {
+      document.removeEventListener('pointerdown', closeOutside);
+      document.removeEventListener('focusin', closeOutside);
+      document.removeEventListener('keydown', closeOnEscape);
+    };
+  }, [mobileMenuOpen]);
+
+  function navigateToSection(sectionId?: string) {
+    setMobileMenuOpen(false);
+    scrollToSection(sectionId);
+  }
 
   useEffect(() => {
     const media = window.matchMedia('(prefers-color-scheme: dark)');
@@ -128,18 +186,35 @@ function App() {
         scrollToSection('main-content');
       }}>Skip to content</a>
       <header className="topbar">
-        <button className="wordmark" type="button" aria-label="Timothy Wong, home" onClick={() => scrollToSection()}>
+        <button ref={homeButtonRef} className="wordmark" type="button" aria-label="Timothy Wong, home" onClick={() => navigateToSection()}>
           <span>TW</span>
         </button>
-        <nav aria-label="Main navigation">
-          <button type="button" onClick={() => scrollToSection('about')}>About</button>
-          <button type="button" onClick={() => scrollToSection('projects')}>Projects</button>
-          <button type="button" onClick={() => scrollToSection('experience')}>Experience</button>
-          <button type="button" onClick={() => scrollToSection('contact')}>Contact</button>
+        <nav className="desktop-nav" aria-label="Main navigation">
+          {navigationSections.map(({ id, label }) => (
+            <button key={id} type="button" onClick={() => navigateToSection(id)}>{label}</button>
+          ))}
         </nav>
         <button className="theme-toggle" type="button" aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`} title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`} onClick={toggleTheme}>
           {theme === 'dark' ? <Sun size={15} strokeWidth={1.7} aria-hidden="true" /> : <Moon size={15} strokeWidth={1.7} aria-hidden="true" />}
         </button>
+        <div className="mobile-navigation" ref={mobileNavigationRef}>
+          <button
+            className="mobile-menu-toggle"
+            type="button"
+            ref={mobileMenuButtonRef}
+            aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation-links"
+            onClick={() => setMobileMenuOpen((current) => !current)}
+          >
+            {mobileMenuOpen ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
+          </button>
+          <nav className="mobile-nav" id="mobile-navigation-links" aria-label="Main navigation" hidden={!mobileMenuOpen}>
+            {navigationSections.map(({ id, label }) => (
+              <button key={id} type="button" onClick={() => navigateToSection(id)}>{label}</button>
+            ))}
+          </nav>
+        </div>
       </header>
 
       <main id="main-content" tabIndex={-1}>
